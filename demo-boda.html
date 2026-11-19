@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Demo Bodas — CodeBit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #243b24;
+      --forest-dark: #162218;
+      --cream: #f5f1ea;
+      --sand: #e6d7c3;
+      --terracotta: #b85d3b;
+      --burgundy: #6e2632;
+      --gold: #c59b47;
+      --ink: #2a2b28;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .script { font-family: 'Great Vibes', cursive; font-weight: 400; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .view { display: none; min-height: 100vh; animation: fadeIn 0.35s ease; }
+    .view.active { display: flex; flex-direction: column; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 01. SAVE THE DATE */
+    #view-std { background: var(--cream); }
+
+    .std-cover {
+      background: var(--forest);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+      transition: all 0.5s ease;
+    }
+
+    .std-cover.opened { min-height: 44vh; padding: 36px 20px; }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+
+    .couple-script { font-size: 46px; line-height: 1.1; margin-bottom: 24px; }
+
+    .btn-terracotta {
+      background: var(--terracotta);
+      color: #fff;
+      border: none;
+      padding: 12px 34px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .btn-terracotta:active { transform: scale(0.96); }
+
+    .std-body {
+      display: none;
+      padding: 28px 20px 40px;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .std-body.visible { display: flex; }
+
+    .std-names-rust { color: var(--terracotta); font-size: 42px; line-height: 1.05; }
+    .std-date { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 0.18em; margin: 10px 0 18px; }
+
+    .polaroid-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 14px 0 24px;
+    }
+    .polaroid {
+      background: #fff;
+      padding: 7px 7px 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      width: 125px;
+    }
+    .polaroid:first-child { transform: rotate(-4deg); }
+    .polaroid:last-child { transform: rotate(4deg); }
+    .polaroid img { width: 100%; height: 105px; object-fit: cover; display: block; }
+
+    .countdown-band {
+      background: var(--forest);
+      color: #fff;
+      width: calc(100% + 40px);
+      padding: 28px 16px;
+      margin: 10px 0 24px;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: 300px;
+      margin: 16px auto 12px;
+    }
+    .cd-box {
+      border: 1px solid rgba(197, 155, 71, 0.55);
+      border-radius: 10px;
+      padding: 10px 4px;
+    }
+    .cd-num { font-family: 'Cormorant Garamond', serif; font-size: 24px; display: block; }
+    .cd-lbl { font-size: 8px; letter-spacing: 0.15em; opacity: 0.75; }
+
+    .btn-rsvp {
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* 02. INVITACIÓN SOBRE */
+    #view-inv {
+      background: var(--forest-dark);
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 18px;
+      text-align: center;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+    #view-inv.opened {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .envelope-stage {
+      position: relative;
+      width: 280px;
+      height: 195px;
+      margin: 40px auto 24px;
+      cursor: pointer;
+    }
+
+    .env-back {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #c79c72, #a87b51);
+      border-radius: 6px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.4);
+    }
+
+    .env-cards {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      height: 165px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 2;
+    }
+    #view-inv.opened .env-cards { transform: translateY(-78px); }
+
+    .card-photo {
+      width: 108px;
+      background: #fff;
+      padding: 5px 5px 16px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      transform: rotate(-5deg);
+    }
+    .card-photo img { width: 100%; height: 95px; object-fit: cover; display: block; }
+
+    .card-invite {
+      width: 132px;
+      background: #faf8f5;
+      color: var(--forest);
+      padding: 14px 8px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      transform: rotate(3deg);
+      border: 1px dashed rgba(36, 59, 36, 0.25);
+    }
+    .card-invite .script { font-size: 27px; line-height: 1.05; display: block; }
+
+    .env-front {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(196,152,108,0.95), #b5865a);
+      clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+      border-radius: 0 0 6px 6px;
+      z-index: 3;
+    }
+
+    .wax-seal {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #993444, #591822);
+      border: 3px solid #7d2533;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.45);
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 225, 225, 0.85);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease;
+    }
+    .envelope-stage:hover .wax-seal { transform: translate(-50%, -50%) scale(1.07); }
+
+    .vinyl-section {
+      display: none;
+      margin-top: 16px;
+      flex-direction: column;
+      align-items: center;
+    }
+    #view-inv.opened .vinyl-section { display: flex; }
+
+    .vinyl-disc {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(#161616 0, #161616 3px, #262626 4px, #161616 5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+      margin-bottom: 10px;
+    }
+    .vinyl-disc.spinning { animation: spin 4s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    .vinyl-label {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    /* 03. CHECK-IN INVITADOS */
+    #view-chk {
+      background: linear-gradient(180deg, #faf7f2 0%, #dfc7ae 100%);
+      padding: 28px 20px;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+    }
+
+    .diamonds { color: var(--gold); letter-spacing: 8px; font-size: 11px; margin: 8px 0 14px; }
+
+    .search-box {
+      width: 100%;
+      max-width: 320px;
+      position: relative;
+      margin: 14px 0;
+    }
+    .search-input {
+      width: 100%;
+      padding: 14px 18px 14px 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.9);
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.45;
+      font-size: 14px;
+    }
+
+    .guest-results {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .guest-card {
+      background: rgba(255,255,255,0.92);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .guest-card strong { font-size: 13px; display: block; color: var(--forest); }
+    .guest-card span { font-size: 11px; opacity: 0.7; }
+
+    .btn-checkin {
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+    .btn-checkin.done { background: #6b8e6b; }
+
+    .arrival-counter {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--forest);
+      padding-top: 16px;
+    }
+
+    /* 04. CÁMARA DESECHABLE */
+    #view-cam {
+      background: #f2ebe1;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .cam-header { padding: 24px 20px 10px; }
+
+    .shutter-btn {
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: #fff;
+      margin: 14px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 14px 30px rgba(110, 38, 50, 0.3);
+      transition: transform 0.15s ease;
+    }
+    .shutter-btn::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(197, 155, 71, 0.7);
+    }
+    .shutter-btn:active { transform: scale(0.95); }
+
+    .cam-leaf { color: var(--gold); font-size: 22px; margin-bottom: 6px; }
+    .cam-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; }
+    .cam-count { font-size: 9px; letter-spacing: 0.2em; margin-top: 4px; opacity: 0.9; }
+
+    .cam-hint {
+      font-size: 11px;
+      line-height: 1.5;
+      max-width: 270px;
+      margin: 0 auto 14px;
+      opacity: 0.78;
+    }
+
+    .roll-gallery {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 12px 18px;
+    }
+    .roll-gallery.active { display: grid; }
+    .roll-thumb {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .roll-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .cam-bottom-bar {
+      background: #cca47a;
+      color: #3d1c14;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+    }
+    .cam-bottom-bar button {
+      background: none;
+      border: none;
+      padding: 14px;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+    .cam-bottom-bar button:first-child { border-right: 1px solid rgba(61, 28, 20, 0.15); }
+
+    .flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 99;
+      transition: opacity 0.25s ease;
+    }
+    .flash-overlay.flash { opacity: 1; transition: none; }
+
+    .toast {
+      position: fixed;
+      bottom: 64px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1c1d1c;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      z-index: 50;
+      white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
+
+    .brand-footer {
+      font-size: 10px;
+      opacity: 0.6;
+      margin-top: 14px;
+    }
+    .brand-footer strong { color: var(--terracotta); }
+  </style>
+</head>
+<body>
+
+  <div id="flash" class="flash-overlay"></div>
+  <div id="toast" class="toast"></div>
+
+  <!-- 01. SAVE THE DATE -->
+  <section id="view-std" class="view active">
+    <div id="std-cover" class="std-cover">
+      <span class="eyebrow">SAVE THE DATE</span>
+      <h1 class="script couple-script">Sofía &amp; Mateo</h1>
+      <button class="btn-terracotta" onclick="abrirSaveTheDate()">ABRIR</button>
+    </div>
+
+    <div id="std-body" class="std-body">
+      <span class="eyebrow" style="color:var(--forest)">SAVE THE DATE</span>
+      <div class="script std-names-rust">Sofía<br>&amp;<br>Mateo</div>
+      <div class="std-date">05 . 12 . 2026</div>
+
+      <p class="serif" style="font-style:italic; color:var(--terracotta); font-size:15px; max-width:260px;">
+        Reserva esta fecha especial para celebrar con nosotros...
+      </p>
+
+      <div class="polaroid-row">
+        <div class="polaroid">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Pareja boda">
+        </div>
+        <div class="polaroid">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Compromiso">
+        </div>
+      </div>
+
+      <div class="countdown-band">
+        <h2 class="script" style="font-size:32px; line-height:1.1;">Ya casi llega el gran día...</h2>
+        <div class="countdown-grid">
+          <div class="cd-box"><span id="cd-d" class="cd-num">16</span><span class="cd-lbl">DÍAS</span></div>
+          <div class="cd-box"><span id="cd-h" class="cd-num">07</span><span class="cd-lbl">HRS</span></div>
+          <div class="cd-box"><span id="cd-m" class="cd-num">13</span><span class="cd-lbl">MIN</span></div>
+          <div class="cd-box"><span id="cd-s" class="cd-num">42</span><span class="cd-lbl">SEG</span></div>
+        </div>
+        <p class="serif" style="font-style:italic; font-size:13px; opacity:0.85;">
+          La invitación formal y los detalles serán enviados pronto.
+        </p>
+      </div>
+
+      <div class="script" style="font-size:36px; color:var(--terracotta);">RSVP</div>
+      <button class="btn-rsvp" onclick="mostrarToast('✓ Asistencia confirmada (Vista Demo)')">CONFIRMAR ASISTENCIA</button>
+      <div class="brand-footer">Desarrollado por <strong>CodeBit</strong></div>
+    </div>
+  </section>
+
+  <!-- 02. INVITACIÓN SOBRE -->
+  <section id="view-inv" class="view">
+    <div class="envelope-stage" onclick="toggleSobre()">
+      <div class="env-back"></div>
+      <div class="env-cards">
+        <div class="card-photo">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Novios">
+        </div>
+        <div class="card-invite">
+          <span class="script">Sofía</span>
+          <span class="serif" style="font-size:12px;">&amp;</span>
+          <span class="script">Mateo</span>
+          <div style="font-size:9px; letter-spacing:2px; margin-top:8px; border-top:1px solid #ddd; padding-top:6px;">
+            05 . 12 . 2026
+          </div>
+        </div>
+      </div>
+      <div class="env-front"></div>
+      <div class="wax-seal">S&amp;M</div>
+    </div>
+
+    <h2 class="script" style="font-size:34px; margin-bottom:6px;">Nuestra Boda</h2>
+    <p id="inv-hint" style="font-size:10px; letter-spacing:0.25em; opacity:0.75;">TOCA EL SELLO PARA ABRIR</p>
+
+    <div class="vinyl-section">
+      <div id="vinyl" class="vinyl-disc" onclick="toggleMusica()">
+        <div class="vinyl-label">&#9654;</div>
+      </div>
+      <p style="font-size:10px; letter-spacing:0.2em; opacity:0.75;">DALE PLAY PARA ESCUCHAR<br>NUESTRA CANCIÓN</p>
+      <div class="brand-footer">Desarrollado por <strong>CodeBit</strong></div>
+    </div>
+  </section>
+
+  <!-- 03. CHECK-IN DE INVITADOS -->
+  <section id="view-chk" class="view">
+    <div style="width:100%;">
+      <span class="eyebrow" style="color:var(--forest)">BIENVENIDOS</span>
+      <h2 class="serif" style="font-size:36px; font-weight:400; color:var(--forest);">Sofía &amp; Mateo</h2>
+      <div class="diamonds">&#9670; &#9670; &#9670;</div>
+      <p style="font-size:13px; max-width:250px; margin:0 auto; line-height:1.4;">
+        Escribe tu nombre para encontrar tu mesa
+      </p>
+
+      <div class="search-box" style="margin:18px auto 12px;">
+        <span class="search-icon">&#128269;</span>
+        <input id="guest-search" class="search-input" type="text" placeholder="Ej. Carlos, Ana, Morales..." oninput="filtrarInvitados()">
+      </div>
+
+      <div id="guest-list" class="guest-results" style="margin:0 auto;"></div>
+    </div>
+
+    <div class="arrival-counter">
+      <span id="arrived-count">128</span> de 164 invitados han llegado
+    </div>
+  </section>
+
+  <!-- 04. CÁMARA DESECHABLE -->
+  <section id="view-cam" class="view">
+    <div class="cam-header">
+      <p class="serif" style="font-style:italic; font-size:14px;">05 de diciembre de 2026</p>
+      <h2 class="serif" style="font-size:34px; font-weight:400; color:var(--forest); margin:4px 0 10px;">Sofía &amp; Mateo</h2>
+      <p style="font-size:12px; line-height:1.5; max-width:280px; margin:0 auto; opacity:0.85;">
+        Porque las fotos cuentan historias, te compartimos esta cámara desechable con 20 fotos para que cuentes la nuestra desde tu perspectiva.
+      </p>
+    </div>
+
+    <div id="cam-shoot-area">
+      <div class="shutter-btn" onclick="tomarFotoDemo()">
+        <span class="cam-leaf">&#127810;</span>
+        <span class="cam-title">Tomar foto</span>
+        <span id="cam-counter" class="cam-count">17 DE 20 FOTOS</span>
+      </div>
+      <p class="cam-hint">
+        Al tomar la foto, esta se guardará automáticamente en el rollo para asegurar la espontaneidad del momento.
+      </p>
+    </div>
+
+    <div id="cam-roll-area" class="roll-gallery"></div>
+
+    <div class="cam-bottom-bar">
+      <button onclick="verCamara()">Subir / Tomar</button>
+      <button onclick="verRollo()">Rollo (<span id="roll-total">3</span>)</button>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const initialTab = params.get('tab') || 'std';
+    activarVista(initialTab);
+
+    function activarVista(tab) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById('view-' + tab);
+      if (target) target.classList.add('active');
+    }
+
+    function mostrarToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    /* 01. Save the Date */
+    function abrirSaveTheDate() {
+      document.getElementById('std-cover').classList.add('opened');
+      document.getElementById('std-body').classList.add('visible');
+    }
+
+    let segs = 42;
+    setInterval(() => {
+      segs = segs > 0 ? segs - 1 : 59;
+      document.getElementById('cd-s').textContent = String(segs).padStart(2, '0');
+    }, 1000);
+
+    /* 02. Invitación Sobre & Música */
+    let sobreAbierto = false;
+    function toggleSobre() {
+      sobreAbierto = !sobreAbierto;
+      const sec = document.getElementById('view-inv');
+      sec.classList.toggle('opened', sobreAbierto);
+      document.getElementById('inv-hint').textContent = sobreAbierto ? 'TOCA EL DISCO PARA ESCUCHAR' : 'TOCA EL SELLO PARA ABRIR';
+    }
+
+    let audioCtx = null;
+    let playing = false;
+    let musicInterval = null;
+    function toggleMusica() {
+      const disc = document.getElementById('vinyl');
+      const label = disc.querySelector('.vinyl-label');
+      playing = !playing;
+
+      if (playing) {
+        disc.classList.add('spinning');
+        label.innerHTML = '&#10074;&#10074;';
+        mostrarToast('♪ Reproduciendo melodía de muestra');
+        iniciarMelodiaSuave();
+      } else {
+        disc.classList.remove('spinning');
+        label.innerHTML = '&#9654;';
+        clearInterval(musicInterval);
+      }
+    }
+
+    function iniciarMelodiaSuave() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const notas = [261.63, 329.63, 392.00, 493.88, 392.00, 329.63];
+      let i = 0;
+      const tocar = () => {
+        if (!playing) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = notas[i % notas.length];
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.9);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.9);
+        i++;
+      };
+      tocar();
+      musicInterval = setInterval(tocar, 700);
+    }
+
+    /* 03. Check-in */
+    const invitadosDemo = [
+      { nombre: 'Carlos Méndez', mesa: 'Mesa 4 · 2 pases', llego: false },
+      { nombre: 'Ana Lucía Gómez', mesa: 'Mesa 2 · 1 pase', llego: false },
+      { nombre: 'Familia Morales', mesa: 'Mesa 7 · 4 pases', llego: true },
+      { nombre: 'Diego Castillo', mesa: 'Mesa 5 · 2 pases', llego: false }
+    ];
+    let totalLlegados = 128;
+
+    function filtrarInvitados() {
+      const q = document.getElementById('guest-search').value.toLowerCase().trim();
+      const cont = document.getElementById('guest-list');
+      cont.innerHTML = '';
+
+      const lista = q ? invitadosDemo.filter(g => g.nombre.toLowerCase().includes(q)) : invitadosDemo.slice(0, 3);
+      lista.forEach((inv) => {
+        const div = document.createElement('div');
+        div.className = 'guest-card';
+        div.innerHTML = `
+          <div>
+            <strong>${inv.nombre}</strong>
+            <span>${inv.mesa}</span>
+          </div>
+          <button class="btn-checkin ${inv.llego ? 'done' : ''}" onclick="marcarLlegada('${inv.nombre}')">
+            ${inv.llego ? '✓ Llegó' : 'Check-in'}
+          </button>
+        `;
+        cont.appendChild(div);
+      });
+    }
+
+    function marcarLlegada(nombre) {
+      const item = invitadosDemo.find(g => g.nombre === nombre);
+      if (item && !item.llego) {
+        item.llego = true;
+        totalLlegados++;
+        document.getElementById('arrived-count').textContent = totalLlegados;
+        mostrarToast(`✓ Check-in registrado: ${nombre}`);
+        filtrarInvitados();
+      }
+    }
+    filtrarInvitados();
+
+    /* 04. Cámara Desechable */
+    let fotosRestantes = 17;
+    const fotosRollo = [
+      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=300&q=80',
+      'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=300&q=80',
+      'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=300&q=80'
+    ];
+    const fotosExtra = [
+      'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=300&q=80',
+      'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=300&q=80',
+      'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=300&q=80'
+    ];
+
+    function tomarFotoDemo() {
+      if (fotosRestantes <= 0) {
+        mostrarToast('Rollo completo (20/20)');
+        return;
+      }
+      const flash = document.getElementById('flash');
+      flash.classList.add('flash');
+      setTimeout(() => flash.classList.remove('flash'), 60);
+
+      fotosRestantes--;
+      const nueva = fotosExtra[fotosRollo.length % fotosExtra.length];
+      fotosRollo.unshift(nueva);
+
+      document.getElementById('cam-counter').textContent = `${fotosRestantes} DE 20 FOTOS`;
+      document.getElementById('roll-total').textContent = fotosRollo.length;
+      mostrarToast('📸 Foto guardada en el rollo');
+    }
+
+    function verRollo() {
+      document.getElementById('cam-shoot-area').style.display = 'none';
+      const roll = document.getElementById('cam-roll-area');
+      roll.classList.add('active');
+      roll.innerHTML = fotosRollo.map(src => `<div class="roll-thumb"><img src="${src}" alt="Foto evento"></div>`).join('');
+    }
+
+    function verCamara() {
+      document.getElementById('cam-roll-area').classList.remove('active');
+      document.getElementById('cam-shoot-area').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,1227 +1,3824 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<script>
-/* Intro CodeBit: se muestra una vez por sesión. Para verla siempre, abre la página con ?intro=1 */
-(function(){try{var r=matchMedia('(prefers-reduced-motion: reduce)').matches;var seen=false;try{seen=sessionStorage.getItem('cbIntro')==='1'}catch(e){}
-if(!r&&(!seen||/[?&]intro=1/.test(location.search)))document.documentElement.classList.add('intro-on')}catch(e){}})();
-</script>
+  <meta charset="UTF-8">
+  <script>
+    /* Intro CodeBit: se muestra una vez por sesión. Para verla siempre, abre la página con ?intro=1 */
+    (function () {
+      try {
+        var r = matchMedia('(prefers-reduced-motion: reduce)').matches; var seen = false; try { seen = sessionStorage.getItem('cbIntro') === '1' } catch (e) { }
+        if (!r && (!seen || /[?&]intro=1/.test(location.search))) document.documentElement.classList.add('intro-on')
+      } catch (e) { }
+    })();
+  </script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Desarrollo web profesional y páginas web a la medida | CodeBit</title>
-<meta name="description" content="Diseñamos páginas web profesionales, tiendas en línea y landing pages a la medida para tu negocio. También tarjetas NFC y menús QR. Cotiza gratis por WhatsApp.">
-<link rel="canonical" href="https://codebit-gt.github.io/">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<!-- Pega aquí la etiqueta de verificación de Google Search Console: <meta name="google-site-verification" content="TU_CODIGO"> -->
-<meta name="google-site-verification" content="T07p_HDiILA_xFWWRSAyQAtVya_-8ra0t3CLRmBpMBc" />
-<meta property="og:locale" content="es_LA">
-<meta property="og:site_name" content="CodeBit">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#172D4D">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeBit | Páginas web que convierten visitas en clientes">
-<meta property="og:description" content="Diseño y desarrollo web a la medida para negocios. Cotiza gratis.">
-<meta property="og:url" content="https://codebit-gt.github.io/">
-<meta property="og:image" content="https://codebit-gt.github.io/og-image.png">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="codebit-icono-192.png" sizes="192x192" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://codebit-gt.github.io/#website","url":"https://codebit-gt.github.io/","name":"CodeBit","inLanguage":"es"},{"@type":"ProfessionalService","@id":"https://codebit-gt.github.io/#negocio","name":"CodeBit","url":"https://codebit-gt.github.io/","logo":"https://codebit-gt.github.io/codebit-icono-512.png","image":"https://codebit-gt.github.io/og-image.png","description":"Diseño y desarrollo web a la medida, tiendas en línea, landing pages, tarjetas NFC, menús QR e invitaciones digitales.","telephone":"+50240679081","areaServed":{"@type":"Country","name":"Guatemala"},"sameAs":["https://www.instagram.com/codebitgt/"],"serviceType":["Desarrollo web","Diseño web","Tiendas en línea","Landing pages","Mantenimiento web","Tarjetas NFC","Menús QR"]}]}</script>
-<style>
-:root{--bg:#172D4D;--bg2:#1C3558;--line:rgba(244,241,234,.14);--cream:#F4F1EA;--mute:#B5B9BE;--acc:#B58A45;--ink:#172D4D;--wrap:1160px;--ease:cubic-bezier(.2,.7,.2,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.w{max-width:var(--wrap);margin:0 auto;padding:0 24px}
-section{padding:110px 0;position:relative}
-.cream{background:var(--cream);color:var(--ink);--line:rgba(23,45,77,.14);--mute:#59687C}
-.mono{font-family:'JetBrains Mono',monospace}
-.tag{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--acc);letter-spacing:.04em;margin-bottom:18px;display:block}
-.cream .tag{color:#84612A}
-h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.04}
-h2{font-size:clamp(2.1rem,5vw,3.6rem);max-width:820px;margin-bottom:18px}
-em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--acc)}
-.cream em{color:#84612A}
-.lead{color:var(--mute);max-width:560px;font-size:1.08rem;margin-bottom:56px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:500;font-size:.97rem;transition:transform .3s var(--ease),background .3s,color .3s,border-color .3s;border:1px solid transparent;cursor:pointer;font-family:inherit}
-.btn-a{background:var(--acc);color:var(--ink)}.btn-a:hover{transform:translateY(-2px);background:#C9A265}
-.btn-g{border-color:var(--line);color:inherit}.btn-g:hover{border-color:var(--acc);color:var(--acc)}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-/* nav */
-header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0);background:linear-gradient(var(--bg),rgba(23,45,77,0));backdrop-filter:blur(8px)}
-nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em}
-.logo img{width:36px;height:36px}.logo span{font-size:.95rem;letter-spacing:.28em;font-weight:600}
-.nl{display:flex;align-items:center;gap:30px;font-size:.92rem;color:var(--mute)}
-.nl a:hover{color:var(--cream)}
-.nl .btn{padding:9px 20px;color:var(--ink)}.nl .btn:hover{color:var(--ink)}
-@media(max-width:820px){.nl a:not(.btn){display:none}}
-/* hero */
-.hero{min-height:100svh;padding:140px 0 80px;display:flex;align-items:center;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),rgba(181,138,69,.16),transparent 70%);pointer-events:none}
-.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
-.hero h1{font-size:clamp(2.7rem,6.6vw,5.4rem);margin-bottom:26px}
-.ln{display:block;overflow:hidden}.ln>span{display:block;transform:translateY(110%);animation:up .9s var(--ease) forwards}
-.ln:nth-child(2)>span{animation-delay:.12s}.ln:nth-child(3)>span{animation-delay:.24s}
-@keyframes up{to{transform:none}}
-.hero p.s{color:var(--mute);font-size:1.15rem;max-width:520px;margin-bottom:32px;opacity:0;animation:fd .8s .5s forwards}
-.cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fd .8s .65s forwards}
-.cmd{margin-top:28px;display:inline-flex;gap:10px;align-items:center;padding:10px 16px;border:1px solid var(--line);border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--mute);opacity:0;animation:fd .8s .8s forwards}
-.cmd b{color:var(--acc);font-weight:500}
-.cmd::after{content:"";width:8px;height:16px;background:var(--acc);animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}@keyframes fd{to{opacity:1}}
-/* browser mock */
-.win{background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5);transform:rotate(-1.2deg);animation:fl 7s ease-in-out infinite}
-@keyframes fl{50%{transform:rotate(-1.2deg) translateY(-8px)}}
-.bar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--mute)}
-.bar i{width:10px;height:10px;border-radius:50%;background:#243F68}.bar span{margin-left:10px}
-.body{display:grid;grid-template-columns:1fr 1fr;min-height:300px}
-.code{padding:18px;border-right:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--mute)}
-.code div{white-space:nowrap;overflow:hidden;width:0;animation:ty 1s steps(28) forwards;margin-bottom:6px}
-.code .k{color:var(--acc)}
-.code div:nth-child(1){animation-delay:.6s}.code div:nth-child(2){animation-delay:1.5s}.code div:nth-child(3){animation-delay:2.4s}.code div:nth-child(4){animation-delay:3.3s}.code div:nth-child(5){animation-delay:4.2s}
-@keyframes ty{to{width:100%}}
-.pv{padding:18px;display:flex;flex-direction:column;gap:10px}
-.pv>*{opacity:0;transform:translateY(10px);animation:pp .6s var(--ease) forwards}
-.pv .h{height:16px;width:80%;background:var(--cream);border-radius:4px;animation-delay:1.2s}
-.pv .p{height:8px;width:95%;background:#34507A;border-radius:4px;animation-delay:2s}
-.pv .p2{width:60%;animation-delay:2.2s}
-.pv .b{height:26px;width:42%;background:var(--acc);border-radius:99px;animation-delay:3s}
-.pv .g{display:grid;grid-template-columns:1fr 1fr;gap:8px;animation-delay:3.8s}
-.pv .g span{height:54px;border-radius:8px;border:1px solid var(--line);background:#142A4A}
-.pv .ok{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#D2B27A;animation-delay:4.8s}
-@keyframes pp{to{opacity:1;transform:none}}
-@media(max-width:900px){.hero .w{grid-template-columns:1fr}.win{transform:none;animation:none}}
-/* marquee */
-.mq{background:var(--acc);color:var(--ink);overflow:hidden;padding:16px 0;white-space:nowrap;font-weight:500}
-.mq div{display:inline-block;animation:mq 30s linear infinite}
-.mq span{margin:0 26px}.mq span::after{content:"/";margin-left:52px;opacity:.5}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* services list */
-.sv{border-top:1px solid var(--line)}
-.sv a{display:grid;grid-template-columns:70px 1fr 1.3fr 40px;gap:20px;align-items:center;padding:30px 12px;border-bottom:1px solid var(--line);position:relative;transition:padding .4s var(--ease),background .3s}
-.sv a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#84612A;transform:scaleY(0);transition:transform .4s var(--ease)}
-.sv a:hover{padding-left:28px;background:rgba(23,45,77,.05)}.sv a:hover::before{transform:scaleY(1)}
-.sv .n{font-family:'JetBrains Mono',monospace;color:#84612A;font-size:.85rem}
-.sv h3{font-size:clamp(1.3rem,2.6vw,1.9rem)}
-.sv p{color:var(--mute);font-size:.97rem}
-.sv .ar{font-size:1.4rem;transition:transform .3s}.sv a:hover .ar{transform:translate(4px,-4px)}
-@media(max-width:760px){.sv a{grid-template-columns:44px 1fr 24px}.sv p{grid-column:2/3}}
-/* compare */
-/* work */
-.wk{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-.tl{border-radius:16px;overflow:hidden;position:relative;min-height:260px;border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease);background:var(--bg2)}
-.tl:hover{transform:translateY(-6px)}
-.tl:nth-child(1){grid-column:span 7;min-height:340px;background:radial-gradient(circle at 80% 20%,rgba(181,138,69,.35),transparent 55%),var(--bg2)}
-.tl:nth-child(2){grid-column:span 5;background:linear-gradient(160deg,#1F3A63,#101F37)}
-.tl:nth-child(3){grid-column:span 5;background:linear-gradient(200deg,#1F3A63,#101F37)}
-.tl:nth-child(4){grid-column:span 7;background:radial-gradient(circle at 15% 80%,rgba(244,241,234,.14),transparent 55%),var(--bg2)}
-.tl .t{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--acc);margin-bottom:6px}
-.tl h3{font-size:1.5rem;margin-bottom:4px}.tl p{color:var(--mute);font-size:.92rem;max-width:420px}
-.tl .ph{position:absolute;top:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mute);border:1px dashed var(--line);padding:3px 8px;border-radius:6px}
-@media(max-width:760px){.tl:nth-child(n){grid-column:span 12}}
-/* ===== Comparador antes/después ===== */
-.ba{--p:50%;--s:1;position:relative;max-width:1000px;aspect-ratio:960/560;border:1px solid var(--line);border-radius:18px;overflow:hidden;user-select:none;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.ba-c{position:absolute;left:0;top:0;width:960px;height:560px;transform:scale(var(--s));transform-origin:0 0;overflow:hidden}
-.ba-a{clip-path:inset(0 0 0 var(--p))}
-.ba-lb{position:absolute;top:14px;z-index:5;font:500 .72rem 'JetBrains Mono',monospace;padding:5px 12px;border-radius:99px;letter-spacing:.06em}
-.ba-lb.l{left:14px;background:#fff;color:#333;border:1px solid #999}
-.ba-lb.r{right:14px;background:#B58A45;color:#172D4D}
-.ba-h{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#B58A45;z-index:4;pointer-events:none}
-.ba-h::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#B58A45;color:#172D4D;display:flex;align-items:center;justify-content:center;font:600 18px Inter,sans-serif;white-space:pre;box-shadow:0 0 0 7px rgba(181,138,69,.25),0 8px 24px rgba(0,0,0,.4)}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6;margin:0}
-.ba-note{color:var(--mute);font-size:.9rem;margin-top:16px}
-/* antes: plantilla genérica antigua */
-.ba-b{background:#e9e4c8;font-family:'Times New Roman',Times,serif;color:#000;font-size:15px}
-.bf-top{background:#333366;color:#ff0;font:12px Arial,sans-serif;padding:5px 12px;text-align:right}
-.bf-ban{background:linear-gradient(90deg,#7b2ff7,#f107a3);text-align:center;padding:12px 0 10px;border-bottom:4px ridge #ccc}
-.bf-w{display:block;font:bold 20px 'Comic Sans MS','Comic Neue',cursive;color:#ff0;text-shadow:2px 2px #000;animation:bfb 1s steps(2) infinite}
-.bf-t{display:block;font:bold 38px 'Times New Roman',serif;color:#fff;text-shadow:3px 3px #000;letter-spacing:2px;margin:2px 0}
-.bf-s{display:block;font-style:italic;color:#ffc;font-size:15px}
-.bf-menu{background:#c0c0c0;border-top:2px outset #fff;border-bottom:2px inset #666;padding:6px;text-align:center;font:14px Arial,sans-serif}
-.bf-menu u{color:#00e;margin:0 6px}
-.bf-row{display:flex;gap:10px;padding:10px}
-.bf-side{width:180px;border:3px ridge #999;background:#ffc;padding:8px 10px;font:14px/1.55 Arial,sans-serif;height:318px}
-.bf-side u{color:#00e}.bf-red{color:#e00;font-weight:bold;animation:bfb 1s steps(2) infinite}
-.bf-main{flex:1;border:3px groove #999;background:#fff;padding:10px 14px;text-align:justify;font:15px/1.3 'Times New Roman',serif;height:318px;overflow:hidden}
-.bf-main b{color:#00c;font-size:17px;display:block;text-align:center;text-decoration:underline;margin-bottom:6px}
-.bf-imgs{display:flex;gap:8px;margin:10px 0}
-.bf-i{flex:1;height:78px;border:2px inset #999;background:#ddd;font:12px Arial,sans-serif;color:#666;display:flex;align-items:center;justify-content:center}
-.bf-ft{position:absolute;left:0;right:0;bottom:0;background:#333366;color:#ccc;font:11px Arial,sans-serif;text-align:center;padding:7px}
-@keyframes bfb{50%{opacity:.25}}
-/* después: web profesional */
-.ba-a{background:radial-gradient(700px 420px at 78% 40%,rgba(181,138,69,.2),transparent 70%),linear-gradient(180deg,#172D4D,#1C3558);color:#F4F1EA;font-family:Inter,system-ui,sans-serif}
-.af-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 44px}
-.af-logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;letter-spacing:-.02em}
-.af-logo i{width:30px;height:30px;border-radius:9px;border:1.5px solid #B58A45;background:#1C3558;display:block;position:relative}
-.af-logo i::after{content:"";position:absolute;inset:7px;border:3px solid #B58A45;border-right-color:transparent;border-radius:50%}
-.af-lk{display:flex;gap:30px;font-size:14px;color:#B5B9BE}
-.af-btn{background:#B58A45;color:#172D4D;padding:11px 22px;border-radius:99px;font-weight:600;font-size:14px}
-.af-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;padding:10px 44px 0;align-items:center;height:330px}
-.af-kick{font:500 12px 'JetBrains Mono',monospace;color:#B58A45;letter-spacing:.12em;margin-bottom:16px}
-.af-h{font-size:50px;line-height:1.02;font-weight:600;letter-spacing:-.035em;margin-bottom:18px}
-.af-h span{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#B58A45}
-.af-p{color:#B5B9BE;font-size:16px;line-height:1.55;max-width:420px;margin-bottom:24px}
-.af-bs{display:flex;gap:12px;align-items:center}
-.af-g{border:1px solid rgba(244,241,234,.28);padding:11px 22px;border-radius:99px;font-size:14px}
-.af-vis{position:relative;height:320px}
-.af-cake{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);width:260px;height:250px}
-.af-cake>*{position:absolute;display:block}
-.af-pl{bottom:-12px;left:-34px;right:-34px;height:34px;border-radius:50%;background:linear-gradient(#F4F1EA,#B5B9BE);box-shadow:0 24px 40px rgba(0,0,0,.55)}
-.af-t1{bottom:12px;left:0;width:260px;height:92px;border-radius:20px;background:linear-gradient(180deg,#F4F1EA,#D8CDB4);box-shadow:inset 0 -10px 18px rgba(0,0,0,.12)}
-.af-t1::after{content:"";position:absolute;left:0;right:0;top:34px;height:6px;background:#B58A45;opacity:.9}
-.af-t2{bottom:92px;left:36px;width:188px;height:82px;border-radius:18px;background:linear-gradient(180deg,#F4F1EA,#E4D9C0);box-shadow:inset 0 -10px 18px rgba(0,0,0,.1)}
-.af-t3{bottom:164px;left:72px;width:116px;height:70px;border-radius:16px;background:linear-gradient(180deg,#CFA562,#8F6A2E);box-shadow:inset 0 -10px 18px rgba(0,0,0,.18)}
-.af-be{bottom:230px;left:117px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#E2BE7E,#84612A)}
-.af-ch{position:absolute;background:rgba(12,33,69,.92);border:1px solid rgba(244,241,234,.18);padding:10px 15px;border-radius:14px;font-size:13px;display:flex;gap:9px;align-items:center;box-shadow:0 14px 30px rgba(0,0,0,.4)}
-.af-ch i{width:8px;height:8px;border-radius:50%;background:#B58A45;display:block}
-.af-cards{position:absolute;left:0;right:0;bottom:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 44px}
-.af-card{background:rgba(12,33,69,.85);border:1px solid rgba(244,241,234,.14);border-radius:16px;padding:15px;display:flex;gap:14px;align-items:center}
-.af-th{width:54px;height:54px;border-radius:14px;flex:none}
-.af-card b{display:block;font-size:15px;font-weight:600}.af-card small{color:#B5B9BE;font-size:12.5px}
-/* clients */
-.mg {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #fff;
-    border-radius: 12px;
-    padding: 8px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Desarrollo web profesional y páginas web a la medida | CodeBit</title>
+  <meta name="description"
+    content="Diseñamos páginas web profesionales, tiendas en línea y landing pages a la medida para tu negocio. También tarjetas NFC y menús QR. Cotiza gratis por WhatsApp.">
+  <link rel="canonical" href="https://codebit-gt.github.io/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <!-- Pega aquí la etiqueta de verificación de Google Search Console: <meta name="google-site-verification" content="TU_CODIGO"> -->
+  <meta name="google-site-verification" content="T07p_HDiILA_xFWWRSAyQAtVya_-8ra0t3CLRmBpMBc" />
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:site_name" content="CodeBit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#172D4D">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CodeBit | Páginas web que convierten visitas en clientes">
+  <meta property="og:description" content="Diseño y desarrollo web a la medida para negocios. Cotiza gratis.">
+  <meta property="og:url" content="https://codebit-gt.github.io/">
+  <meta property="og:image" content="https://codebit-gt.github.io/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="codebit-icono-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://codebit-gt.github.io/#website","url":"https://codebit-gt.github.io/","name":"CodeBit","inLanguage":"es"},{"@type":"ProfessionalService","@id":"https://codebit-gt.github.io/#negocio","name":"CodeBit","url":"https://codebit-gt.github.io/","logo":"https://codebit-gt.github.io/codebit-icono-512.png","image":"https://codebit-gt.github.io/og-image.png","description":"Diseño y desarrollo web a la medida, tiendas en línea, landing pages, tarjetas NFC, menús QR e invitaciones digitales.","telephone":"+50240679081","areaServed":{"@type":"Country","name":"Guatemala"},"sameAs":["https://www.instagram.com/codebitgt/"],"serviceType":["Desarrollo web","Diseño web","Tiendas en línea","Landing pages","Mantenimiento web","Tarjetas NFC","Menús QR"]}]}</script>
+  <style>
+    :root {
+      --bg: #172D4D;
+      --bg2: #1C3558;
+      --line: rgba(244, 241, 234, .14);
+      --cream: #F4F1EA;
+      --mute: #B5B9BE;
+      --acc: #B58A45;
+      --ink: #172D4D;
+      --wrap: 1160px;
+      --ease: cubic-bezier(.2, .7, .2, 1)
+    }
 
-.mg img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-.cl{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.cc{border:1px solid var(--line);border-radius:20px;padding:34px;background:var(--bg);transition:transform .5s var(--ease),border-color .3s}
-.cc:hover{transform:translateY(-6px);border-color:var(--acc)}
-.cc .mg{width:64px;height:64px;border-radius:14px;border:1px solid var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:1.9rem;color:var(--acc);margin-bottom:22px}
-.cc .t{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--acc);margin-bottom:6px;display:block}
-.cc h3{font-size:1.7rem;margin-bottom:18px}
-.cc ul{list-style:none;margin-bottom:22px}
-.cc li{padding:11px 0 11px 22px;border-bottom:1px solid var(--line);color:var(--mute);font-size:.95rem;position:relative}
-.cc li::before{content:"";position:absolute;left:0;top:20px;width:8px;height:1px;background:var(--acc)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:5px 11px;border:1px solid var(--line);border-radius:99px;color:var(--cream)}
-@media(max-width:820px){.cl{grid-template-columns:1fr}}
-/* process */
-.st{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-.st div{padding:30px 26px 10px 0;position:relative}
-.st div::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:#84612A;transition:width 1.2s var(--ease)}
-.st.in div::before{width:100%}.st div:nth-child(2)::before{transition-delay:.25s}.st div:nth-child(3)::before{transition-delay:.5s}.st div:nth-child(4)::before{transition-delay:.75s}
-.st .n{font-family:'Instrument Serif',serif;font-size:3.4rem;color:#84612A;line-height:1}
-.st h3{font-size:1.3rem;margin:10px 0 8px}.st p{color:var(--mute);font-size:.95rem}
-@media(max-width:820px){.st{grid-template-columns:1fr 1fr}}@media(max-width:520px){.st{grid-template-columns:1fr}}
-/* packages */
-.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pc{border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;background:var(--bg2);transition:transform .4s var(--ease),border-color .3s}
-.pc:hover{transform:translateY(-6px);border-color:var(--acc)}
-.pc.hot{background:var(--cream);color:var(--ink);--mute:#59687C;border-color:var(--cream)}
-.pc h3{font-size:1.5rem}.pc .pr{font-family:'JetBrains Mono',monospace;color:var(--acc);margin:8px 0 18px;font-size:.92rem}
-.pc.hot .pr{color:#84612A}
-.pc ul{list-style:none;flex:1;margin-bottom:26px;color:var(--mute);font-size:.95rem}
-.pc li{padding:8px 0;border-bottom:1px solid var(--line)}
-.pc .btn{justify-content:center}.pc.hot .btn-a{background:var(--ink);color:var(--cream)}
-@media(max-width:860px){.pk{grid-template-columns:1fr}}
-/* physical */
-.ph2 .w{display:grid;grid-template-columns:1fr .7fr;gap:60px;align-items:center}
-.ph2 ul{list-style:none;margin:8px 0 30px}.ph2 li{padding:14px 0;border-bottom:1px solid var(--line);color:var(--mute)}.ph2 li b{color:var(--cream);font-weight:500}
-.ph{width:min(280px,80%);aspect-ratio:10/16;margin:0 auto;border:1px solid var(--line);border-radius:34px;overflow:hidden;position:relative;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media(max-width:860px){.ph2 .w{grid-template-columns:1fr}}
-/* faq */
-details{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;padding:24px 0;font-size:1.15rem;font-weight:500;display:flex;justify-content:space-between;gap:16px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.6rem;line-height:1;color:#84612A;transition:transform .3s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--mute);padding-bottom:24px;max-width:680px}
-/* contact */
-.ct{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-form{display:grid;gap:14px}
-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--mute)}
-input,select,textarea{width:100%;margin-top:6px;padding:14px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--cream);font:inherit}
-textarea{min-height:90px;resize:vertical}
-@media(max-width:820px){.ct{grid-template-columns:1fr}}
-footer{border-top:1px solid var(--line);padding:36px 0 100px;color:var(--mute);font-size:.88rem}
-footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a:hover{color:var(--acc)}
-.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0));z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
-.wa:hover{transform:scale(1.1) rotate(-6deg)}
-.rv{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.ln>span,.hero p.s,.cta,.cmd,.pv>*{opacity:1;transform:none}.code div{width:100%}.mq div{transform:none}}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .w {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 110px 0;
+      position: relative
+    }
+
+    .cream {
+      background: var(--cream);
+      color: var(--ink);
+      --line: rgba(23, 45, 77, .14);
+      --mute: #59687C
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: var(--acc);
+      letter-spacing: .04em;
+      margin-bottom: 18px;
+      display: block
+    }
+
+    .cream .tag {
+      color: #84612A
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.04
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      max-width: 820px;
+      margin-bottom: 18px
+    }
+
+    em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      color: var(--acc)
+    }
+
+    .cream em {
+      color: #84612A
+    }
+
+    .lead {
+      color: var(--mute);
+      max-width: 560px;
+      font-size: 1.08rem;
+      margin-bottom: 56px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: .97rem;
+      transition: transform .3s var(--ease), background .3s, color .3s, border-color .3s;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit
+    }
+
+    .btn-a {
+      background: var(--acc);
+      color: var(--ink)
+    }
+
+    .btn-a:hover {
+      transform: translateY(-2px);
+      background: #C9A265
+    }
+
+    .btn-g {
+      border-color: var(--line);
+      color: inherit
+    }
+
+    .btn-g:hover {
+      border-color: var(--acc);
+      color: var(--acc)
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--acc);
+      outline-offset: 3px
+    }
+
+    /* nav */
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      padding-top: env(safe-area-inset-top, 0);
+      background: linear-gradient(var(--bg), rgba(23, 45, 77, 0));
+      backdrop-filter: blur(8px)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: -.02em
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px
+    }
+
+    .logo span {
+      font-size: .95rem;
+      letter-spacing: .28em;
+      font-weight: 600
+    }
+
+    .nl {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: .92rem;
+      color: var(--mute)
+    }
+
+    .nl a:hover {
+      color: var(--cream)
+    }
+
+    .nl .btn {
+      padding: 9px 20px;
+      color: var(--ink)
+    }
+
+    .nl .btn:hover {
+      color: var(--ink)
+    }
+
+    @media(max-width:820px) {
+      .nl a:not(.btn) {
+        display: none
+      }
+    }
+
+    /* hero */
+    .hero {
+      min-height: 100svh;
+      padding: 140px 0 80px;
+      display: flex;
+      align-items: center;
+      overflow: hidden
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(520px circle at var(--mx, 70%) var(--my, 30%), rgba(181, 138, 69, .16), transparent 70%);
+      pointer-events: none
+    }
+
+    .hero .w {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items: center;
+      position: relative
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6.6vw, 5.4rem);
+      margin-bottom: 26px
+    }
+
+    .ln {
+      display: block;
+      overflow: hidden
+    }
+
+    .ln>span {
+      display: block;
+      transform: translateY(110%);
+      animation: up .9s var(--ease) forwards
+    }
+
+    .ln:nth-child(2)>span {
+      animation-delay: .12s
+    }
+
+    .ln:nth-child(3)>span {
+      animation-delay: .24s
+    }
+
+    @keyframes up {
+      to {
+        transform: none
+      }
+    }
+
+    .hero p.s {
+      color: var(--mute);
+      font-size: 1.15rem;
+      max-width: 520px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fd .8s .5s forwards
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fd .8s .65s forwards
+    }
+
+    .cmd {
+      margin-top: 28px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .85rem;
+      color: var(--mute);
+      opacity: 0;
+      animation: fd .8s .8s forwards
+    }
+
+    .cmd b {
+      color: var(--acc);
+      font-weight: 500
+    }
+
+    .cmd::after {
+      content: "";
+      width: 8px;
+      height: 16px;
+      background: var(--acc);
+      animation: bl 1s steps(1) infinite
+    }
+
+    @keyframes bl {
+      50% {
+        opacity: 0
+      }
+    }
+
+    @keyframes fd {
+      to {
+        opacity: 1
+      }
+    }
+
+    /* browser mock */
+    .win {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .5);
+      transform: rotate(-1.2deg);
+      animation: fl 7s ease-in-out infinite
+    }
+
+    @keyframes fl {
+      50% {
+        transform: rotate(-1.2deg) translateY(-8px)
+      }
+    }
+
+    .bar {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      color: var(--mute)
+    }
+
+    .bar i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #243F68
+    }
+
+    .bar span {
+      margin-left: 10px
+    }
+
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 300px
+    }
+
+    .code {
+      padding: 18px;
+      border-right: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      color: var(--mute)
+    }
+
+    .code div {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: ty 1s steps(28) forwards;
+      margin-bottom: 6px
+    }
+
+    .code .k {
+      color: var(--acc)
+    }
+
+    .code div:nth-child(1) {
+      animation-delay: .6s
+    }
+
+    .code div:nth-child(2) {
+      animation-delay: 1.5s
+    }
+
+    .code div:nth-child(3) {
+      animation-delay: 2.4s
+    }
+
+    .code div:nth-child(4) {
+      animation-delay: 3.3s
+    }
+
+    .code div:nth-child(5) {
+      animation-delay: 4.2s
+    }
+
+    @keyframes ty {
+      to {
+        width: 100%
+      }
+    }
+
+    .pv {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .pv>* {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: pp .6s var(--ease) forwards
+    }
+
+    .pv .h {
+      height: 16px;
+      width: 80%;
+      background: var(--cream);
+      border-radius: 4px;
+      animation-delay: 1.2s
+    }
+
+    .pv .p {
+      height: 8px;
+      width: 95%;
+      background: #34507A;
+      border-radius: 4px;
+      animation-delay: 2s
+    }
+
+    .pv .p2 {
+      width: 60%;
+      animation-delay: 2.2s
+    }
+
+    .pv .b {
+      height: 26px;
+      width: 42%;
+      background: var(--acc);
+      border-radius: 99px;
+      animation-delay: 3s
+    }
+
+    .pv .g {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      animation-delay: 3.8s
+    }
+
+    .pv .g span {
+      height: 54px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #142A4A
+    }
+
+    .pv .ok {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem;
+      color: #D2B27A;
+      animation-delay: 4.8s
+    }
+
+    @keyframes pp {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @media(max-width:900px) {
+      .hero .w {
+        grid-template-columns: 1fr
+      }
+
+      .win {
+        transform: none;
+        animation: none
+      }
+    }
+
+    /* marquee */
+    .mq {
+      background: var(--acc);
+      color: var(--ink);
+      overflow: hidden;
+      padding: 16px 0;
+      white-space: nowrap;
+      font-weight: 500
+    }
+
+    .mq div {
+      display: inline-block;
+      animation: mq 30s linear infinite
+    }
+
+    .mq span {
+      margin: 0 26px
+    }
+
+    .mq span::after {
+      content: "/";
+      margin-left: 52px;
+      opacity: .5
+    }
+
+    @keyframes mq {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* services list */
+    .sv {
+      border-top: 1px solid var(--line)
+    }
+
+    .sv a {
+      display: grid;
+      grid-template-columns: 70px 1fr 1.3fr 40px;
+      gap: 20px;
+      align-items: center;
+      padding: 30px 12px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      transition: padding .4s var(--ease), background .3s
+    }
+
+    .sv a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #84612A;
+      transform: scaleY(0);
+      transition: transform .4s var(--ease)
+    }
+
+    .sv a:hover {
+      padding-left: 28px;
+      background: rgba(23, 45, 77, .05)
+    }
+
+    .sv a:hover::before {
+      transform: scaleY(1)
+    }
+
+    .sv .n {
+      font-family: 'JetBrains Mono', monospace;
+      color: #84612A;
+      font-size: .85rem
+    }
+
+    .sv h3 {
+      font-size: clamp(1.3rem, 2.6vw, 1.9rem)
+    }
+
+    .sv p {
+      color: var(--mute);
+      font-size: .97rem
+    }
+
+    .sv .ar {
+      font-size: 1.4rem;
+      transition: transform .3s
+    }
+
+    .sv a:hover .ar {
+      transform: translate(4px, -4px)
+    }
+
+    @media(max-width:760px) {
+      .sv a {
+        grid-template-columns: 44px 1fr 24px
+      }
+
+      .sv p {
+        grid-column: 2/3
+      }
+    }
+
+    /* compare */
+    /* work */
+    .wk {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .tl {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      min-height: 260px;
+      border: 1px solid var(--line);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform .5s var(--ease);
+      background: var(--bg2)
+    }
+
+    .tl:hover {
+      transform: translateY(-6px)
+    }
+
+    .tl:nth-child(1) {
+      grid-column: span 7;
+      min-height: 340px;
+      background: radial-gradient(circle at 80% 20%, rgba(181, 138, 69, .35), transparent 55%), var(--bg2)
+    }
+
+    .tl:nth-child(2) {
+      grid-column: span 5;
+      background: linear-gradient(160deg, #1F3A63, #101F37)
+    }
+
+    .tl:nth-child(3) {
+      grid-column: span 5;
+      background: linear-gradient(200deg, #1F3A63, #101F37)
+    }
+
+    .tl:nth-child(4) {
+      grid-column: span 7;
+      background: radial-gradient(circle at 15% 80%, rgba(244, 241, 234, .14), transparent 55%), var(--bg2)
+    }
+
+    .tl .t {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      color: var(--acc);
+      margin-bottom: 6px
+    }
+
+    .tl h3 {
+      font-size: 1.5rem;
+      margin-bottom: 4px
+    }
+
+    .tl p {
+      color: var(--mute);
+      font-size: .92rem;
+      max-width: 420px
+    }
+
+    .tl .ph {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem;
+      color: var(--mute);
+      border: 1px dashed var(--line);
+      padding: 3px 8px;
+      border-radius: 6px
+    }
+
+    @media(max-width:760px) {
+      .tl:nth-child(n) {
+        grid-column: span 12
+      }
+    }
+
+    /* ===== Comparador antes/después ===== */
+    .ba {
+      --p: 50%;
+      --s: 1;
+      position: relative;
+      max-width: 1000px;
+      aspect-ratio: 960/560;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      user-select: none;
+      background: #000;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .45)
+    }
+
+    .ba-c {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 960px;
+      height: 560px;
+      transform: scale(var(--s));
+      transform-origin: 0 0;
+      overflow: hidden
+    }
+
+    .ba-a {
+      clip-path: inset(0 0 0 var(--p))
+    }
+
+    .ba-lb {
+      position: absolute;
+      top: 14px;
+      z-index: 5;
+      font: 500 .72rem 'JetBrains Mono', monospace;
+      padding: 5px 12px;
+      border-radius: 99px;
+      letter-spacing: .06em
+    }
+
+    .ba-lb.l {
+      left: 14px;
+      background: #fff;
+      color: #333;
+      border: 1px solid #999
+    }
+
+    .ba-lb.r {
+      right: 14px;
+      background: #B58A45;
+      color: #172D4D
+    }
+
+    .ba-h {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--p);
+      width: 2px;
+      margin-left: -1px;
+      background: #B58A45;
+      z-index: 4;
+      pointer-events: none
+    }
+
+    .ba-h::after {
+      content: "‹ ›";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #B58A45;
+      color: #172D4D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 600 18px Inter, sans-serif;
+      white-space: pre;
+      box-shadow: 0 0 0 7px rgba(181, 138, 69, .25), 0 8px 24px rgba(0, 0, 0, .4)
+    }
+
+    .ba input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 6;
+      margin: 0
+    }
+
+    .ba-note {
+      color: var(--mute);
+      font-size: .9rem;
+      margin-top: 16px
+    }
+
+    /* antes: plantilla genérica antigua */
+    .ba-b {
+      background: #e9e4c8;
+      font-family: 'Times New Roman', Times, serif;
+      color: #000;
+      font-size: 15px
+    }
+
+    .bf-top {
+      background: #333366;
+      color: #ff0;
+      font: 12px Arial, sans-serif;
+      padding: 5px 12px;
+      text-align: right
+    }
+
+    .bf-ban {
+      background: linear-gradient(90deg, #7b2ff7, #f107a3);
+      text-align: center;
+      padding: 12px 0 10px;
+      border-bottom: 4px ridge #ccc
+    }
+
+    .bf-w {
+      display: block;
+      font: bold 20px 'Comic Sans MS', 'Comic Neue', cursive;
+      color: #ff0;
+      text-shadow: 2px 2px #000;
+      animation: bfb 1s steps(2) infinite
+    }
+
+    .bf-t {
+      display: block;
+      font: bold 38px 'Times New Roman', serif;
+      color: #fff;
+      text-shadow: 3px 3px #000;
+      letter-spacing: 2px;
+      margin: 2px 0
+    }
+
+    .bf-s {
+      display: block;
+      font-style: italic;
+      color: #ffc;
+      font-size: 15px
+    }
+
+    .bf-menu {
+      background: #c0c0c0;
+      border-top: 2px outset #fff;
+      border-bottom: 2px inset #666;
+      padding: 6px;
+      text-align: center;
+      font: 14px Arial, sans-serif
+    }
+
+    .bf-menu u {
+      color: #00e;
+      margin: 0 6px
+    }
+
+    .bf-row {
+      display: flex;
+      gap: 10px;
+      padding: 10px
+    }
+
+    .bf-side {
+      width: 180px;
+      border: 3px ridge #999;
+      background: #ffc;
+      padding: 8px 10px;
+      font: 14px/1.55 Arial, sans-serif;
+      height: 318px
+    }
+
+    .bf-side u {
+      color: #00e
+    }
+
+    .bf-red {
+      color: #e00;
+      font-weight: bold;
+      animation: bfb 1s steps(2) infinite
+    }
+
+    .bf-main {
+      flex: 1;
+      border: 3px groove #999;
+      background: #fff;
+      padding: 10px 14px;
+      text-align: justify;
+      font: 15px/1.3 'Times New Roman', serif;
+      height: 318px;
+      overflow: hidden
+    }
+
+    .bf-main b {
+      color: #00c;
+      font-size: 17px;
+      display: block;
+      text-align: center;
+      text-decoration: underline;
+      margin-bottom: 6px
+    }
+
+    .bf-imgs {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0
+    }
+
+    .bf-i {
+      flex: 1;
+      height: 78px;
+      border: 2px inset #999;
+      background: #ddd;
+      font: 12px Arial, sans-serif;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .bf-ft {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #333366;
+      color: #ccc;
+      font: 11px Arial, sans-serif;
+      text-align: center;
+      padding: 7px
+    }
+
+    @keyframes bfb {
+      50% {
+        opacity: .25
+      }
+    }
+
+    /* después: web profesional */
+    .ba-a {
+      background: radial-gradient(700px 420px at 78% 40%, rgba(181, 138, 69, .2), transparent 70%), linear-gradient(180deg, #172D4D, #1C3558);
+      color: #F4F1EA;
+      font-family: Inter, system-ui, sans-serif
+    }
+
+    .af-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 44px
+    }
+
+    .af-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 19px;
+      letter-spacing: -.02em
+    }
+
+    .af-logo i {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      border: 1.5px solid #B58A45;
+      background: #1C3558;
+      display: block;
+      position: relative
+    }
+
+    .af-logo i::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 3px solid #B58A45;
+      border-right-color: transparent;
+      border-radius: 50%
+    }
+
+    .af-lk {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      color: #B5B9BE
+    }
+
+    .af-btn {
+      background: #B58A45;
+      color: #172D4D;
+      padding: 11px 22px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    .af-hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 20px;
+      padding: 10px 44px 0;
+      align-items: center;
+      height: 330px
+    }
+
+    .af-kick {
+      font: 500 12px 'JetBrains Mono', monospace;
+      color: #B58A45;
+      letter-spacing: .12em;
+      margin-bottom: 16px
+    }
+
+    .af-h {
+      font-size: 50px;
+      line-height: 1.02;
+      font-weight: 600;
+      letter-spacing: -.035em;
+      margin-bottom: 18px
+    }
+
+    .af-h span {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #B58A45
+    }
+
+    .af-p {
+      color: #B5B9BE;
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 420px;
+      margin-bottom: 24px
+    }
+
+    .af-bs {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .af-g {
+      border: 1px solid rgba(244, 241, 234, .28);
+      padding: 11px 22px;
+      border-radius: 99px;
+      font-size: 14px
+    }
+
+    .af-vis {
+      position: relative;
+      height: 320px
+    }
+
+    .af-cake {
+      position: absolute;
+      left: 50%;
+      bottom: 34px;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 250px
+    }
+
+    .af-cake>* {
+      position: absolute;
+      display: block
+    }
+
+    .af-pl {
+      bottom: -12px;
+      left: -34px;
+      right: -34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(#F4F1EA, #B5B9BE);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, .55)
+    }
+
+    .af-t1 {
+      bottom: 12px;
+      left: 0;
+      width: 260px;
+      height: 92px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #F4F1EA, #D8CDB4);
+      box-shadow: inset 0 -10px 18px rgba(0, 0, 0, .12)
+    }
+
+    .af-t1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 34px;
+      height: 6px;
+      background: #B58A45;
+      opacity: .9
+    }
+
+    .af-t2 {
+      bottom: 92px;
+      left: 36px;
+      width: 188px;
+      height: 82px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #F4F1EA, #E4D9C0);
+      box-shadow: inset 0 -10px 18px rgba(0, 0, 0, .1)
+    }
+
+    .af-t3 {
+      bottom: 164px;
+      left: 72px;
+      width: 116px;
+      height: 70px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #CFA562, #8F6A2E);
+      box-shadow: inset 0 -10px 18px rgba(0, 0, 0, .18)
+    }
+
+    .af-be {
+      bottom: 230px;
+      left: 117px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #E2BE7E, #84612A)
+    }
+
+    .af-ch {
+      position: absolute;
+      background: rgba(12, 33, 69, .92);
+      border: 1px solid rgba(244, 241, 234, .18);
+      padding: 10px 15px;
+      border-radius: 14px;
+      font-size: 13px;
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .4)
+    }
+
+    .af-ch i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #B58A45;
+      display: block
+    }
+
+    .af-cards {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 0 44px
+    }
+
+    .af-card {
+      background: rgba(12, 33, 69, .85);
+      border: 1px solid rgba(244, 241, 234, .14);
+      border-radius: 16px;
+      padding: 15px;
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+
+    .af-th {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      flex: none
+    }
+
+    .af-card b {
+      display: block;
+      font-size: 15px;
+      font-weight: 600
+    }
+
+    .af-card small {
+      color: #B5B9BE;
+      font-size: 12.5px
+    }
+
+    /* clients */
+    .mg {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px;
+    }
+
+    .mg img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
+    }
+
+    .cc {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 34px;
+      background: var(--bg);
+      transition: transform .5s var(--ease), border-color .3s
+    }
+
+    .cc:hover {
+      transform: translateY(-6px);
+      border-color: var(--acc)
+    }
+
+    .cc .mg {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      border: 1px solid var(--acc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.9rem;
+      color: var(--acc);
+      margin-bottom: 22px
+    }
+
+    .cc .t {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .74rem;
+      color: var(--acc);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    .cc h3 {
+      font-size: 1.7rem;
+      margin-bottom: 18px
+    }
+
+    .cc ul {
+      list-style: none;
+      margin-bottom: 22px
+    }
+
+    .cc li {
+      padding: 11px 0 11px 22px;
+      border-bottom: 1px solid var(--line);
+      color: var(--mute);
+      font-size: .95rem;
+      position: relative
+    }
+
+    .cc li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 8px;
+      height: 1px;
+      background: var(--acc)
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .chips span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--cream)
+    }
+
+    @media(max-width:820px) {
+      .cl {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* process */
+    .st {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .st div {
+      padding: 30px 26px 10px 0;
+      position: relative
+    }
+
+    .st div::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #84612A;
+      transition: width 1.2s var(--ease)
+    }
+
+    .st.in div::before {
+      width: 100%
+    }
+
+    .st div:nth-child(2)::before {
+      transition-delay: .25s
+    }
+
+    .st div:nth-child(3)::before {
+      transition-delay: .5s
+    }
+
+    .st div:nth-child(4)::before {
+      transition-delay: .75s
+    }
+
+    .st .n {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3.4rem;
+      color: #84612A;
+      line-height: 1
+    }
+
+    .st h3 {
+      font-size: 1.3rem;
+      margin: 10px 0 8px
+    }
+
+    .st p {
+      color: var(--mute);
+      font-size: .95rem
+    }
+
+    @media(max-width:820px) {
+      .st {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:520px) {
+      .st {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* packages */
+    .pk {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .pc {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg2);
+      transition: transform .4s var(--ease), border-color .3s
+    }
+
+    .pc:hover {
+      transform: translateY(-6px);
+      border-color: var(--acc)
+    }
+
+    .pc.hot {
+      background: var(--cream);
+      color: var(--ink);
+      --mute: #59687C;
+      border-color: var(--cream)
+    }
+
+    .pc h3 {
+      font-size: 1.5rem
+    }
+
+    .pc .pr {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--acc);
+      margin: 8px 0 18px;
+      font-size: .92rem
+    }
+
+    .pc.hot .pr {
+      color: #84612A
+    }
+
+    .pc ul {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 26px;
+      color: var(--mute);
+      font-size: .95rem
+    }
+
+    .pc li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .pc .btn {
+      justify-content: center
+    }
+
+    .pc.hot .btn-a {
+      background: var(--ink);
+      color: var(--cream)
+    }
+
+    @media(max-width:860px) {
+      .pk {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* physical */
+    .ph2 .w {
+      display: grid;
+      grid-template-columns: 1fr .7fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    .ph2 ul {
+      list-style: none;
+      margin: 8px 0 30px
+    }
+
+    .ph2 li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--mute)
+    }
+
+    .ph2 li b {
+      color: var(--cream);
+      font-weight: 500
+    }
+
+    .ph {
+      width: min(280px, 80%);
+      aspect-ratio: 10/16;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .5)
+    }
+
+    .ph video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    @media(max-width:860px) {
+      .ph2 .w {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* faq */
+    details {
+      border-bottom: 1px solid var(--line)
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 24px 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    summary::-webkit-details-marker {
+      display: none
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.6rem;
+      line-height: 1;
+      color: #84612A;
+      transition: transform .3s
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg)
+    }
+
+    details p {
+      color: var(--mute);
+      padding-bottom: 24px;
+      max-width: 680px
+    }
+
+    /* contact */
+    .ct {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px
+    }
+
+    form {
+      display: grid;
+      gap: 14px
+    }
+
+    label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      color: var(--mute)
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg2);
+      color: var(--cream);
+      font: inherit
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical
+    }
+
+    @media(max-width:820px) {
+      .ct {
+        grid-template-columns: 1fr
+      }
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0 100px;
+      color: var(--mute);
+      font-size: .88rem
+    }
+
+    footer .w {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    footer a:hover {
+      color: var(--acc)
+    }
+
+    .wa {
+      position: fixed;
+      right: 18px;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0));
+      z-index: 60;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+      transition: transform .3s var(--ease)
+    }
+
+    .wa:hover {
+      transform: scale(1.1) rotate(-6deg)
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease)
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important
+      }
+
+      .rv,
+      .ln>span,
+      .hero p.s,
+      .cta,
+      .cmd,
+      .pv>* {
+        opacity: 1;
+        transform: none
+      }
+
+      .code div {
+        width: 100%
+      }
+
+      .mq div {
+        transform: none
+      }
+    }
 
 
-/* === FIX PROYECTOS: Ajustar recuadros al tamaño de su contenido === */
-.wk {
-    align-items: start; /* Impide que el grid estire las tarjetas para igualar a la más alta de la fila */
-}
+    /* === FIX PROYECTOS: Ajustar recuadros al tamaño de su contenido === */
+    .wk {
+      align-items: start;
+      /* Impide que el grid estire las tarjetas para igualar a la más alta de la fila */
+    }
 
-.wk .tl {
-    min-height: auto !important; /* Elimina las alturas mínimas forzadas (como los 260px o 340px) */
-    justify-content: flex-start; /* Ordena la imagen y el texto desde arriba hacia abajo naturalmente */
-}
+    .wk .tl {
+      min-height: auto !important;
+      /* Elimina las alturas mínimas forzadas (como los 260px o 340px) */
+      justify-content: flex-start;
+      /* Ordena la imagen y el texto desde arriba hacia abajo naturalmente */
+    }
 
-/* Anula la clase flotante .ph antigua y adapta la imagen al contenedor */
-.wk .tl .ph {
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
-    border: none !important;
-    padding: 0 !important;
-    margin-bottom: 18px; /* Espacio entre la foto y el texto amarillo */
-}
+    /* Anula la clase flotante .ph antigua y adapta la imagen al contenedor */
+    .wk .tl .ph {
+      position: relative !important;
+      top: 0 !important;
+      right: 0 !important;
+      border: none !important;
+      padding: 0 !important;
+      margin-bottom: 18px;
+      /* Espacio entre la foto y el texto amarillo */
+    }
 
-.wk .tl img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Bordes suaves para que la captura se vea más integrada */
-    display: block;
-}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..1000&display=swap" rel="stylesheet">
+    .wk .tl img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      /* Bordes suaves para que la captura se vea más integrada */
+      display: block;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..1000&display=swap"
+    rel="stylesheet">
 
-<style>
-/* CodeBit top hero: navy palette, scoped to this section. */
-#codebit-top {
-  --cb-close-bg: #172D4D;
-  --cb-close-white: #F4F1EA;
-  --cb-close-copy: #B5B9BE;
-  --cb-close-muted: #A2A8AF;
-  --cb-close-quiet: #878E98;
-  --cb-close-amber: #B58A45;
-  --cb-close-amber-soft: #B58A45;
-  --cb-close-wordmark: #1F3A63;
-  --cb-close-line: rgba(244,241,234,.14);
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  color: var(--cb-close-white);
-  background:
-    radial-gradient(ellipse at 80% 18%, rgba(181,138,69,.24), transparent 35%),
-    radial-gradient(ellipse at 10% 82%, rgba(181,138,69,.055), transparent 38%),
-    var(--cb-close-bg);
-  font-family: "Google Sans Flex", Inter, Arial, sans-serif;
-  font-optical-sizing: auto;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-#codebit-top *, #codebit-top *::before, #codebit-top *::after { box-sizing: border-box; }
-#codebit-top a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-#codebit-top button, #codebit-top input { font: inherit; }
-#codebit-top .cb-close__shell {
-  width: min(100% - 104px, 1320px);
-  margin-inline: auto;
-  position: relative;
-}
+  <style>
+    /* CodeBit top hero: navy palette, scoped to this section. */
+    #codebit-top {
+      --cb-close-bg: #172D4D;
+      --cb-close-white: #F4F1EA;
+      --cb-close-copy: #B5B9BE;
+      --cb-close-muted: #A2A8AF;
+      --cb-close-quiet: #878E98;
+      --cb-close-amber: #B58A45;
+      --cb-close-amber-soft: #B58A45;
+      --cb-close-wordmark: #1F3A63;
+      --cb-close-line: rgba(244, 241, 234, .14);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--cb-close-white);
+      background:
+        radial-gradient(ellipse at 80% 18%, rgba(181, 138, 69, .24), transparent 35%),
+        radial-gradient(ellipse at 10% 82%, rgba(181, 138, 69, .055), transparent 38%),
+        var(--cb-close-bg);
+      font-family: "Google Sans Flex", Inter, Arial, sans-serif;
+      font-optical-sizing: auto;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-/* Closing CTA */
-#codebit-top .cb-close__cta {
-  min-height: 650px;
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(420px, .94fr) minmax(0, 1.06fr);
-  align-items: center;
-  isolation: isolate;
-  padding: 96px 0 82px;
-}
-#codebit-top .cb-close__cta::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  width: 760px;
-  height: 590px;
-  right: -190px;
-  top: -70px;
-  pointer-events: none;
-  background: radial-gradient(ellipse, rgba(181,138,69,.23), rgba(181,138,69,.10) 35%, transparent 70%);
-  filter: blur(28px);
-}
-#codebit-top .cb-close__copy { position: relative; z-index: 3; max-width: 610px; padding-top: 4px; }
-#codebit-top .cb-close__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 34px;
-  padding: 7px 13px 7px 11px;
-  border: 1px solid rgba(181,138,69,.42);
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(16,39,70,.96), rgba(12,33,69,.94));
-  color: #F4F1EA;
-  font-size: 12px;
-  font-weight: 540;
-  letter-spacing: .015em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 5px 24px rgba(0,0,0,.22);
-  opacity: 0;
-  animation: cb-close-rise .7s .08s cubic-bezier(.2,.7,.2,1) forwards;
-}
-#codebit-top .cb-close__eyebrow svg { width: 14px; height: 14px; color: var(--cb-close-amber); filter: drop-shadow(0 0 5px rgba(181,138,69,.34)); }
-#codebit-top .cb-close__title {
-  max-width: 650px;
-  margin: 25px 0 19px;
-  color: #F4F1EA;
-  font-size: clamp(58px, 6.3vw, 92px);
-  font-weight: 430;
-  line-height: .99;
-  letter-spacing: -.075em;
-}
-#codebit-top .cb-close__headline-line { display: block; overflow: hidden; padding: 0 .07em .09em 0; margin-bottom: -.08em; }
-#codebit-top .cb-close__headline-line > span { display: inline-block; transform: translateY(115%); animation: cb-close-headline .85s cubic-bezier(.18,.72,.18,1) forwards; }
-#codebit-top .cb-close__headline-line:nth-child(1) > span { animation-delay: .22s; }
-#codebit-top .cb-close__headline-line:nth-child(2) > span { animation-delay: .36s; }
-#codebit-top .cb-close__accent { color: var(--cb-close-amber); }
-#codebit-top .cb-close__description {
-  max-width: 465px;
-  margin: 0;
-  color: #B5B9BE;
-  font-size: 15px;
-  font-weight: 390;
-  line-height: 1.8;
-  letter-spacing: -.012em;
-  opacity: 0;
-  animation: cb-close-rise .72s .61s cubic-bezier(.2,.7,.2,1) forwards;
-}
-#codebit-top .cb-close__actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 31px;
-  opacity: 0;
-  animation: cb-close-rise .75s .76s cubic-bezier(.2,.7,.2,1) forwards;
-}
-#codebit-top .cb-close__glass-button {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  min-height: 54px;
-  padding: 0 19px 0 23px;
-  overflow: hidden;
-  border-radius: 13px;
-  border: 1px solid rgba(244,241,234,.58);
-  background: linear-gradient(112deg, #101F37 0%, #1F3A63 48%, #34507A 100%);
-  color: #F4F1EA;
-  font-size: 14px;
-  font-weight: 580;
-  letter-spacing: -.01em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.47), inset 0 -1px 0 rgba(255,255,255,.13), 0 0 0 1px rgba(181,138,69,.18), 0 8px 27px rgba(181,138,69,.28), 0 0 36px rgba(181,138,69,.20);
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-}
-#codebit-top .cb-close__glass-button::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 1px 1px 52% 1px;
-  border-radius: 11px 11px 50% 50%;
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
-  pointer-events: none;
-}
-#codebit-top .cb-close__glass-button::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -70%; left: -35%;
-  width: 30%; height: 240%;
-  transform: rotate(24deg);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-  transition: left .65s ease;
-}
-#codebit-top .cb-close__glass-button:hover {
-  transform: translateY(-2px);
-  border-color: rgba(244,241,234,.88);
-  color: #F4F1EA;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.58), 0 10px 32px rgba(181,138,69,.34), 0 0 44px rgba(181,138,69,.24);
-}
-#codebit-top .cb-close__glass-button:hover::after { left: 125%; }
-#codebit-top .cb-close__glass-button:active { transform: translateY(0) scale(.985); }
-#codebit-top .cb-close__glass-button svg { width: 15px; height: 15px; color: #B58A45; }
-#codebit-top .cb-close__micro-copy { color: #B5B9BE; font-size: 11px; letter-spacing: .01em; }
-#codebit-top .cb-close__editor {
-  position: absolute;
-  z-index: 1;
-  width: min(65%, 860px);
-  right: -8.5%;
-  top: 15px;
-  pointer-events: none;
-  opacity: 0;
-  transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(45px,26px,0) scale(.91);
-  transform-origin: 70% 40%;
-  animation: cb-close-editor 1.2s .52s cubic-bezier(.17,.7,.19,1) forwards;
-}
-#codebit-top .cb-close__editor::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 8% 7% 12% 2%;
-  border-radius: 40%;
-  background: rgba(181,138,69,.25);
-  filter: blur(72px);
-  opacity: .6;
-}
-#codebit-top .cb-close__editor img {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* Recolorea el brillo ámbar original del editor hacia azul frío para integrarlo
+    #codebit-top *,
+    #codebit-top *::before,
+    #codebit-top *::after {
+      box-sizing: border-box;
+    }
+
+    #codebit-top a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #codebit-top button,
+    #codebit-top input {
+      font: inherit;
+    }
+
+    #codebit-top .cb-close__shell {
+      width: min(100% - 104px, 1320px);
+      margin-inline: auto;
+      position: relative;
+    }
+
+    /* Closing CTA */
+    #codebit-top .cb-close__cta {
+      min-height: 650px;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(420px, .94fr) minmax(0, 1.06fr);
+      align-items: center;
+      isolation: isolate;
+      padding: 96px 0 82px;
+    }
+
+    #codebit-top .cb-close__cta::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 760px;
+      height: 590px;
+      right: -190px;
+      top: -70px;
+      pointer-events: none;
+      background: radial-gradient(ellipse, rgba(181, 138, 69, .23), rgba(181, 138, 69, .10) 35%, transparent 70%);
+      filter: blur(28px);
+    }
+
+    #codebit-top .cb-close__copy {
+      position: relative;
+      z-index: 3;
+      max-width: 610px;
+      padding-top: 4px;
+    }
+
+    #codebit-top .cb-close__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 34px;
+      padding: 7px 13px 7px 11px;
+      border: 1px solid rgba(181, 138, 69, .42);
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(16, 39, 70, .96), rgba(12, 33, 69, .94));
+      color: #F4F1EA;
+      font-size: 12px;
+      font-weight: 540;
+      letter-spacing: .015em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055), 0 5px 24px rgba(0, 0, 0, .22);
+      opacity: 0;
+      animation: cb-close-rise .7s .08s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    #codebit-top .cb-close__eyebrow svg {
+      width: 14px;
+      height: 14px;
+      color: var(--cb-close-amber);
+      filter: drop-shadow(0 0 5px rgba(181, 138, 69, .34));
+    }
+
+    #codebit-top .cb-close__title {
+      max-width: 650px;
+      margin: 25px 0 19px;
+      color: #F4F1EA;
+      font-size: clamp(58px, 6.3vw, 92px);
+      font-weight: 430;
+      line-height: .99;
+      letter-spacing: -.075em;
+    }
+
+    #codebit-top .cb-close__headline-line {
+      display: block;
+      overflow: hidden;
+      padding: 0 .07em .09em 0;
+      margin-bottom: -.08em;
+    }
+
+    #codebit-top .cb-close__headline-line>span {
+      display: inline-block;
+      transform: translateY(115%);
+      animation: cb-close-headline .85s cubic-bezier(.18, .72, .18, 1) forwards;
+    }
+
+    #codebit-top .cb-close__headline-line:nth-child(1)>span {
+      animation-delay: .22s;
+    }
+
+    #codebit-top .cb-close__headline-line:nth-child(2)>span {
+      animation-delay: .36s;
+    }
+
+    #codebit-top .cb-close__accent {
+      color: var(--cb-close-amber);
+    }
+
+    #codebit-top .cb-close__description {
+      max-width: 465px;
+      margin: 0;
+      color: #B5B9BE;
+      font-size: 15px;
+      font-weight: 390;
+      line-height: 1.8;
+      letter-spacing: -.012em;
+      opacity: 0;
+      animation: cb-close-rise .72s .61s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    #codebit-top .cb-close__actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 31px;
+      opacity: 0;
+      animation: cb-close-rise .75s .76s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    #codebit-top .cb-close__glass-button {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      min-height: 54px;
+      padding: 0 19px 0 23px;
+      overflow: hidden;
+      border-radius: 13px;
+      border: 1px solid rgba(244, 241, 234, .58);
+      background: linear-gradient(112deg, #101F37 0%, #1F3A63 48%, #34507A 100%);
+      color: #F4F1EA;
+      font-size: 14px;
+      font-weight: 580;
+      letter-spacing: -.01em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .47), inset 0 -1px 0 rgba(255, 255, 255, .13), 0 0 0 1px rgba(181, 138, 69, .18), 0 8px 27px rgba(181, 138, 69, .28), 0 0 36px rgba(181, 138, 69, .20);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    #codebit-top .cb-close__glass-button::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 1px 1px 52% 1px;
+      border-radius: 11px 11px 50% 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    #codebit-top .cb-close__glass-button::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -70%;
+      left: -35%;
+      width: 30%;
+      height: 240%;
+      transform: rotate(24deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+      transition: left .65s ease;
+    }
+
+    #codebit-top .cb-close__glass-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 241, 234, .88);
+      color: #F4F1EA;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 10px 32px rgba(181, 138, 69, .34), 0 0 44px rgba(181, 138, 69, .24);
+    }
+
+    #codebit-top .cb-close__glass-button:hover::after {
+      left: 125%;
+    }
+
+    #codebit-top .cb-close__glass-button:active {
+      transform: translateY(0) scale(.985);
+    }
+
+    #codebit-top .cb-close__glass-button svg {
+      width: 15px;
+      height: 15px;
+      color: #B58A45;
+    }
+
+    #codebit-top .cb-close__micro-copy {
+      color: #B5B9BE;
+      font-size: 11px;
+      letter-spacing: .01em;
+    }
+
+    #codebit-top .cb-close__editor {
+      position: absolute;
+      z-index: 1;
+      width: min(65%, 860px);
+      right: -8.5%;
+      top: 15px;
+      pointer-events: none;
+      opacity: 0;
+      transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(45px, 26px, 0) scale(.91);
+      transform-origin: 70% 40%;
+      animation: cb-close-editor 1.2s .52s cubic-bezier(.17, .7, .19, 1) forwards;
+    }
+
+    #codebit-top .cb-close__editor::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 8% 7% 12% 2%;
+      border-radius: 40%;
+      background: rgba(181, 138, 69, .25);
+      filter: blur(72px);
+      opacity: .6;
+    }
+
+    #codebit-top .cb-close__editor img {
+      display: block;
+      width: 100%;
+      height: auto;
+      /* Recolorea el brillo ámbar original del editor hacia azul frío para integrarlo
      con la identidad azul marino de CodeBit, sin cambiar el resto del sitio. */
-  filter: hue-rotate(168deg) saturate(1.12)
-          drop-shadow(0 25px 70px rgba(0,0,0,.72))
-          drop-shadow(0 0 28px rgba(181,138,69,.34));
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 100%);
-}
+      filter: hue-rotate(168deg) saturate(1.12) drop-shadow(0 25px 70px rgba(0, 0, 0, .72)) drop-shadow(0 0 28px rgba(181, 138, 69, .34));
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 100%);
+    }
 
 
 
-@media (min-width: 1500px) {
-  #codebit-top .cb-close__shell { width: min(100% - 144px, 1380px); }
-  #codebit-top .cb-close__cta { min-height: 700px; }
-  #codebit-top .cb-close__editor { right: -7%; top: 8px; width: 67%; }
-}
-@media (max-width: 1100px) and (min-width: 901px) {
-  #codebit-top .cb-close__shell { width: calc(100% - 72px); }
-  #codebit-top .cb-close__cta { min-height: 590px; grid-template-columns: minmax(380px, .95fr) minmax(0, 1fr); }
-  #codebit-top .cb-close__editor { width: 64%; right: -10%; top: 54px; }
-}
-@media (max-width: 900px) {
-  #codebit-top .cb-close__shell { width: min(100% - 48px, 680px); }
-  #codebit-top .cb-close__cta { display: flex; flex-direction: column; align-items: flex-start; min-height: 0; padding: 82px 0 26px; }
-  #codebit-top .cb-close__copy { max-width: 620px; }
-  #codebit-top .cb-close__title { font-size: clamp(57px, 10vw, 82px); }
-  #codebit-top .cb-close__description { max-width: 520px; }
-  #codebit-top .cb-close__editor {
-    position: relative; width: min(112%, 720px); right: auto; top: auto;
-    align-self: center; margin: 30px -6% -10px 0;
-    transform: perspective(1250px) rotateY(-10deg) rotateZ(-2deg) translate3d(0,22px,0) scale(.94);
-    animation: cb-close-editor 1.2s .75s cubic-bezier(.17,.7,.19,1) forwards;
-  }
-  #codebit-top .cb-close__editor img { -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%); }
-}
-@media (max-width: 620px) {
-  #codebit-top .cb-close__shell { width: calc(100% - 40px); }
-  #codebit-top .cb-close__cta { padding-top: 66px; }
-  #codebit-top .cb-close__eyebrow { font-size: 11px; }
-  #codebit-top .cb-close__title { margin-top: 23px; font-size: clamp(52px, 13.5vw, 73px); letter-spacing: -.078em; }
-  #codebit-top .cb-close__description { max-width: 430px; font-size: 14px; line-height: 1.75; }
-  #codebit-top .cb-close__actions { margin-top: 26px; flex-wrap: wrap; gap: 13px; }
-  #codebit-top .cb-close__glass-button { min-height: 51px; }
-  #codebit-top .cb-close__micro-copy { font-size: 10px; }
-  #codebit-top .cb-close__editor { width: 122%; margin: 29px -11% -3px -7%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #codebit-top *, #codebit-top *::before, #codebit-top *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  #codebit-top .cb-close__eyebrow, #codebit-top .cb-close__description,
-  #codebit-top .cb-close__actions, #codebit-top .cb-close__editor { opacity: 1; transform: none; }
-  #codebit-top .cb-close__headline-line > span { transform: none; }
-}
+    @media (min-width: 1500px) {
+      #codebit-top .cb-close__shell {
+        width: min(100% - 144px, 1380px);
+      }
 
-/* Footer */
-#codebit-close .cb-close__footer {
-  position: relative;
-  z-index: 2;
-  display: block;
-  margin: 0;
-  padding: 42px 0 0;
-  border-top: 1px solid var(--cb-close-line);
-  overflow: hidden;
-  isolation: isolate;
-  color: var(--cb-close-muted);
-  background: transparent;
-  font-size: 14px;
-}
-#codebit-close .cb-close__footer-main {
-  display: grid;
-  grid-template-columns: minmax(220px, 1.22fr) minmax(440px, 2.45fr) minmax(220px, 1.12fr);
-  column-gap: clamp(32px, 5vw, 82px);
-  padding: 9px 0 55px;
-  position: relative;
-  z-index: 4;
-}
-#codebit-close .cb-close__brand-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #F4F1EA;
-  font-size: 21px;
-  line-height: 1;
-  font-weight: 570;
-  letter-spacing: -.06em;
-}
-#codebit-close .cb-close__brand-mark img { width: 29px; height: 29px; object-fit: contain; }
-#codebit-close .cb-close__brand-blurb {
-  max-width: 260px;
-  margin: 19px 0 21px;
-  color: #A2A8AF;
-  font-size: 12px;
-  line-height: 1.8;
-  letter-spacing: -.01em;
-}
-#codebit-close .cb-close__socials { display: flex; align-items: center; gap: 13px; }
-#codebit-close .cb-close__social-link {
-  display: grid;
-  place-items: center;
-  width: 29px;
-  height: 29px;
-  border: 1px solid rgba(181,138,69,.26);
-  border-radius: 50%;
-  color: var(--cb-close-amber-soft);
-  background: rgba(255,255,255,.015);
-  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
-}
-#codebit-close .cb-close__social-link:hover { color: #F4F1EA; border-color: rgba(181,138,69,.75); background: rgba(181,138,69,.08); transform: translateY(-2px); }
-#codebit-close .cb-close__social-link svg { width: 13px; height: 13px; }
-#codebit-close .cb-close__links {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
-  gap: clamp(18px, 3vw, 45px);
-}
-#codebit-close .cb-close__links { height: auto; min-height: 0; align-items: start; justify-content: initial; }
-#codebit-close .cb-close__link-column h3,
-#codebit-close .cb-close__newsletter h3 {
-  margin: 3px 0 19px;
-  color: #F4F1EA;
-  font-size: 12px;
-  font-weight: 570;
-  letter-spacing: -.01em;
-}
-#codebit-close .cb-close__link-column ul { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
-#codebit-close .cb-close__link-column a {
-  color: #878E98;
-  font-size: 12px;
-  font-weight: 390;
-  transition: color .2s ease;
-}
-#codebit-close .cb-close__link-column a:hover { color: #B58A45; }
-#codebit-close .cb-close__newsletter h3 { margin-bottom: 19px; }
-#codebit-close .cb-close__newsletter-form {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 47px;
-  margin: 0;
-  padding: 4px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 11px;
-  background: linear-gradient(180deg, rgba(23,45,77,.9), rgba(16,31,55,.92));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 8px 25px rgba(0,0,0,.18);
-  transition: border-color .2s ease, box-shadow .2s ease;
-}
-#codebit-close .cb-close__newsletter-form:focus-within { border-color: rgba(181,138,69,.55); box-shadow: 0 0 0 3px rgba(181,138,69,.08), inset 0 1px 0 rgba(255,255,255,.07); }
-#codebit-close .cb-close__newsletter input {
-  flex: 1;
-  min-width: 0;
-  width: auto;
-  height: 36px;
-  margin: 0;
-  padding: 0 9px;
-  border: 0;
-  border-radius: 0;
-  outline: 0;
-  color: #F4F1EA;
-  background: transparent;
-  font-size: 11px;
-  box-shadow: none;
-}
-#codebit-close .cb-close__newsletter input::placeholder { color: #878E98; opacity: 1; }
-#codebit-close .cb-close__newsletter button {
-  flex: 0 0 35px;
-  display: grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  margin: 0;
-  padding: 0;
-  border: 1px solid rgba(244,241,234,.42);
-  border-radius: 8px;
-  color: #F4F1EA;
-  background: linear-gradient(135deg, #84612A, #101F37 60%, #101F37);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 2px 10px rgba(184,116,56,.22);
-  cursor: pointer;
-  transition: transform .2s ease, filter .2s ease;
-}
-#codebit-close .cb-close__newsletter button:hover { transform: translateY(-1px); filter: brightness(1.18); }
-#codebit-close .cb-close__newsletter button svg { width: 15px; height: 15px; }
-#codebit-close .cb-close__unsubscribe { min-height: 17px; margin: 10px 0 0 2px; color: #878E98; font-size: 10px; line-height: 1.5; }
-#codebit-close .cb-close__form-message { color: #B58A45; }
-#codebit-close .cb-close__footer-bottom {
-  position: relative;
-  z-index: 1;
-  min-height: 340px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 68px;
-  isolation: isolate;
-}
-#codebit-close .cb-close__copyright {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin: 0;
-  color: #A2A8AF;
-  font-size: 11px;
-  font-weight: 410;
-  letter-spacing: .025em;
-  white-space: nowrap;
-}
-#codebit-close .cb-close__slash { color: #84612A; }
-#codebit-close .cb-close__copyright strong { color: #E4DFD3; font-weight: 520; }
-#codebit-close .cb-close__hands {
-  position: absolute;
-  z-index: 2;
-  bottom: 26px;
-  width: 36%;
-  max-width: 460px;
-  height: auto;
-  pointer-events: none;
-  filter: drop-shadow(0 0 14px rgba(216,143,75,.18)) drop-shadow(0 15px 23px rgba(0,0,0,.5));
-}
-#codebit-close .cb-close__hands-left { left: -8.5%; }
-#codebit-close .cb-close__hands-right { right: -8.5%; }
-#codebit-close .cb-close__wordmark {
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  bottom: -.105em;
-  transform: translateX(-50%);
-  width: max-content;
-  color: var(--cb-close-wordmark);
-  opacity: .78;
-  font-size: clamp(170px, 25.5vw, 360px);
-  font-weight: 220;
-  line-height: .78;
-  letter-spacing: -.095em;
-  white-space: nowrap;
-  user-select: none;
-  pointer-events: none;
-}
-#codebit-close :focus-visible { outline: 2px solid var(--cb-close-amber); outline-offset: 3px; }
+      #codebit-top .cb-close__cta {
+        min-height: 700px;
+      }
 
-@keyframes cb-close-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes cb-close-headline { from { transform: translateY(115%); } to { transform: translateY(0); } }
-@keyframes cb-close-editor {
-  0% { opacity: 0; transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(45px,26px,0) scale(.91); }
-  100% { opacity: 1; transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(0,0,0) scale(1); }
-}
+      #codebit-top .cb-close__editor {
+        right: -7%;
+        top: 8px;
+        width: 67%;
+      }
+    }
 
-@media (min-width: 1500px) {
-  #codebit-close .cb-close__shell { width: min(100% - 144px, 1380px); }
-  #codebit-close .cb-close__cta { min-height: 700px; }
-  #codebit-close .cb-close__editor { right: -7%; top: 8px; width: 67%; }
-}
-@media (max-width: 1100px) and (min-width: 901px) {
-  #codebit-close .cb-close__shell { width: calc(100% - 72px); }
-  #codebit-close .cb-close__cta { min-height: 590px; grid-template-columns: minmax(380px, .95fr) minmax(0, 1fr); }
-  #codebit-close .cb-close__editor { width: 64%; right: -10%; top: 54px; }
-  #codebit-close .cb-close__footer-main { grid-template-columns: minmax(190px, 1fr) minmax(390px, 2fr); row-gap: 42px; }
-  #codebit-close .cb-close__newsletter { grid-column: 2; max-width: 340px; }
-}
-@media (max-width: 900px) {
-  #codebit-close .cb-close__shell { width: min(100% - 48px, 680px); }
-  #codebit-close .cb-close__cta { display: flex; flex-direction: column; align-items: flex-start; min-height: 0; padding: 82px 0 26px; }
-  #codebit-close .cb-close__copy { max-width: 620px; }
-  #codebit-close .cb-close__title { font-size: clamp(57px, 10vw, 82px); }
-  #codebit-close .cb-close__description { max-width: 520px; }
-  #codebit-close .cb-close__editor {
-    position: relative;
-    width: min(112%, 720px);
-    right: auto;
-    top: auto;
-    align-self: center;
-    margin: 30px -6% -10px 0;
-    transform: perspective(1250px) rotateY(-10deg) rotateZ(-2deg) translate3d(0,22px,0) scale(.94);
-    animation: cb-close-editor 1.2s .75s cubic-bezier(.17,.7,.19,1) forwards;
-  }
-  #codebit-close .cb-close__editor img { -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%); }
-  #codebit-close .cb-close__footer-main { grid-template-columns: minmax(190px, .95fr) minmax(0, 1.4fr); row-gap: 42px; }
-  #codebit-close .cb-close__links { gap: 18px; }
-  #codebit-close .cb-close__newsletter { grid-column: 2; max-width: 360px; }
-  #codebit-close .cb-close__footer-bottom { min-height: 285px; padding-top: 50px; }
-  #codebit-close .cb-close__hands { width: 40%; bottom: 23px; }
-  #codebit-close .cb-close__hands-left { left: -8%; }
-  #codebit-close .cb-close__hands-right { right: -8%; }
-  #codebit-close .cb-close__wordmark { font-size: clamp(155px, 29vw, 245px); bottom: -.08em; }
-}
-@media (max-width: 620px) {
-  #codebit-close .cb-close__shell { width: calc(100% - 40px); }
-  #codebit-close .cb-close__cta { padding-top: 66px; }
-  #codebit-close .cb-close__eyebrow { font-size: 11px; }
-  #codebit-close .cb-close__title { margin-top: 23px; font-size: clamp(52px, 13.5vw, 73px); letter-spacing: -.078em; }
-  #codebit-close .cb-close__description { max-width: 430px; font-size: 14px; line-height: 1.75; }
-  #codebit-close .cb-close__actions { margin-top: 26px; flex-wrap: wrap; gap: 13px; }
-  #codebit-close .cb-close__glass-button { min-height: 51px; }
-  #codebit-close .cb-close__micro-copy { font-size: 10px; }
-  #codebit-close .cb-close__editor { width: 122%; margin: 29px -11% -3px -7%; }
-  #codebit-close .cb-close__footer { padding-top: 31px; }
-  #codebit-close .cb-close__footer-main { display: grid; grid-template-columns: 1fr 1fr; gap: 38px 24px; padding-bottom: 42px; }
-  #codebit-close .cb-close__brand { grid-column: 1 / -1; }
-  #codebit-close .cb-close__brand-blurb { max-width: 290px; margin: 15px 0 16px; }
-  #codebit-close .cb-close__links { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 13px; }
-  #codebit-close .cb-close__link-column h3, #codebit-close .cb-close__newsletter h3 { font-size: 11px; margin-bottom: 15px; }
-  #codebit-close .cb-close__link-column ul { gap: 12px; }
-  #codebit-close .cb-close__link-column a { font-size: 11px; }
-  #codebit-close .cb-close__newsletter { grid-column: 1 / -1; max-width: 390px; }
-  #codebit-close .cb-close__newsletter h3 { margin-bottom: 13px; }
-  #codebit-close .cb-close__footer-bottom { min-height: 235px; padding-top: 38px; }
-  #codebit-close .cb-close__copyright { font-size: 9px; gap: 6px; }
-  #codebit-close .cb-close__hands { width: 48%; bottom: 15px; }
-  #codebit-close .cb-close__hands-left { left: -13%; }
-  #codebit-close .cb-close__hands-right { right: -13%; }
-  #codebit-close .cb-close__wordmark { font-size: clamp(126px, 28vw, 190px); bottom: -.035em; }
-}
-@media (max-width: 390px) {
-  #codebit-close .cb-close__shell { width: calc(100% - 32px); }
-  #codebit-close .cb-close__footer-main { column-gap: 15px; }
-  #codebit-close .cb-close__links { gap: 10px; }
-  #codebit-close .cb-close__link-column a { font-size: 10px; }
-  #codebit-close .cb-close__copyright { font-size: 8px; gap: 5px; }
-  #codebit-close .cb-close__hands { width: 53%; }
-  #codebit-close .cb-close__wordmark { font-size: 124px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #codebit-close *, #codebit-close *::before, #codebit-close *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  #codebit-close .cb-close__eyebrow,
-  #codebit-close .cb-close__description,
-  #codebit-close .cb-close__actions,
-  #codebit-close .cb-close__editor { opacity: 1; transform: none; }
-  #codebit-close .cb-close__headline-line > span { transform: none; }
-}
+    @media (max-width: 1100px) and (min-width: 901px) {
+      #codebit-top .cb-close__shell {
+        width: calc(100% - 72px);
+      }
+
+      #codebit-top .cb-close__cta {
+        min-height: 590px;
+        grid-template-columns: minmax(380px, .95fr) minmax(0, 1fr);
+      }
+
+      #codebit-top .cb-close__editor {
+        width: 64%;
+        right: -10%;
+        top: 54px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #codebit-top .cb-close__shell {
+        width: min(100% - 48px, 680px);
+      }
+
+      #codebit-top .cb-close__cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 0;
+        padding: 82px 0 26px;
+      }
+
+      #codebit-top .cb-close__copy {
+        max-width: 620px;
+      }
+
+      #codebit-top .cb-close__title {
+        font-size: clamp(57px, 10vw, 82px);
+      }
+
+      #codebit-top .cb-close__description {
+        max-width: 520px;
+      }
+
+      #codebit-top .cb-close__editor {
+        position: relative;
+        width: min(112%, 720px);
+        right: auto;
+        top: auto;
+        align-self: center;
+        margin: 30px -6% -10px 0;
+        transform: perspective(1250px) rotateY(-10deg) rotateZ(-2deg) translate3d(0, 22px, 0) scale(.94);
+        animation: cb-close-editor 1.2s .75s cubic-bezier(.17, .7, .19, 1) forwards;
+      }
+
+      #codebit-top .cb-close__editor img {
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+      }
+    }
+
+    @media (max-width: 620px) {
+      #codebit-top .cb-close__shell {
+        width: calc(100% - 40px);
+      }
+
+      #codebit-top .cb-close__cta {
+        padding-top: 66px;
+      }
+
+      #codebit-top .cb-close__eyebrow {
+        font-size: 11px;
+      }
+
+      #codebit-top .cb-close__title {
+        margin-top: 23px;
+        font-size: clamp(52px, 13.5vw, 73px);
+        letter-spacing: -.078em;
+      }
+
+      #codebit-top .cb-close__description {
+        max-width: 430px;
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      #codebit-top .cb-close__actions {
+        margin-top: 26px;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      #codebit-top .cb-close__glass-button {
+        min-height: 51px;
+      }
+
+      #codebit-top .cb-close__micro-copy {
+        font-size: 10px;
+      }
+
+      #codebit-top .cb-close__editor {
+        width: 122%;
+        margin: 29px -11% -3px -7%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      #codebit-top *,
+      #codebit-top *::before,
+      #codebit-top *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      #codebit-top .cb-close__eyebrow,
+      #codebit-top .cb-close__description,
+      #codebit-top .cb-close__actions,
+      #codebit-top .cb-close__editor {
+        opacity: 1;
+        transform: none;
+      }
+
+      #codebit-top .cb-close__headline-line>span {
+        transform: none;
+      }
+    }
+
+    /* Footer */
+    #codebit-close .cb-close__footer {
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin: 0;
+      padding: 42px 0 0;
+      border-top: 1px solid var(--cb-close-line);
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--cb-close-muted);
+      background: transparent;
+      font-size: 14px;
+    }
+
+    #codebit-close .cb-close__footer-main {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.22fr) minmax(440px, 2.45fr) minmax(220px, 1.12fr);
+      column-gap: clamp(32px, 5vw, 82px);
+      padding: 9px 0 55px;
+      position: relative;
+      z-index: 4;
+    }
+
+    #codebit-close .cb-close__brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #F4F1EA;
+      font-size: 21px;
+      line-height: 1;
+      font-weight: 570;
+      letter-spacing: -.06em;
+    }
+
+    #codebit-close .cb-close__brand-mark img {
+      width: 29px;
+      height: 29px;
+      object-fit: contain;
+    }
+
+    #codebit-close .cb-close__brand-blurb {
+      max-width: 260px;
+      margin: 19px 0 21px;
+      color: #A2A8AF;
+      font-size: 12px;
+      line-height: 1.8;
+      letter-spacing: -.01em;
+    }
+
+    #codebit-close .cb-close__socials {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    #codebit-close .cb-close__social-link {
+      display: grid;
+      place-items: center;
+      width: 29px;
+      height: 29px;
+      border: 1px solid rgba(181, 138, 69, .26);
+      border-radius: 50%;
+      color: var(--cb-close-amber-soft);
+      background: rgba(255, 255, 255, .015);
+      transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    #codebit-close .cb-close__social-link:hover {
+      color: #F4F1EA;
+      border-color: rgba(181, 138, 69, .75);
+      background: rgba(181, 138, 69, .08);
+      transform: translateY(-2px);
+    }
+
+    #codebit-close .cb-close__social-link svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    #codebit-close .cb-close__links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      gap: clamp(18px, 3vw, 45px);
+    }
+
+    #codebit-close .cb-close__links {
+      height: auto;
+      min-height: 0;
+      align-items: start;
+      justify-content: initial;
+    }
+
+    #codebit-close .cb-close__link-column h3,
+    #codebit-close .cb-close__newsletter h3 {
+      margin: 3px 0 19px;
+      color: #F4F1EA;
+      font-size: 12px;
+      font-weight: 570;
+      letter-spacing: -.01em;
+    }
+
+    #codebit-close .cb-close__link-column ul {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #codebit-close .cb-close__link-column a {
+      color: #878E98;
+      font-size: 12px;
+      font-weight: 390;
+      transition: color .2s ease;
+    }
+
+    #codebit-close .cb-close__link-column a:hover {
+      color: #B58A45;
+    }
+
+    #codebit-close .cb-close__newsletter h3 {
+      margin-bottom: 19px;
+    }
+
+    #codebit-close .cb-close__newsletter-form {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 47px;
+      margin: 0;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 11px;
+      background: linear-gradient(180deg, rgba(23, 45, 77, .9), rgba(16, 31, 55, .92));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055), 0 8px 25px rgba(0, 0, 0, .18);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    #codebit-close .cb-close__newsletter-form:focus-within {
+      border-color: rgba(181, 138, 69, .55);
+      box-shadow: 0 0 0 3px rgba(181, 138, 69, .08), inset 0 1px 0 rgba(255, 255, 255, .07);
+    }
+
+    #codebit-close .cb-close__newsletter input {
+      flex: 1;
+      min-width: 0;
+      width: auto;
+      height: 36px;
+      margin: 0;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+      color: #F4F1EA;
+      background: transparent;
+      font-size: 11px;
+      box-shadow: none;
+    }
+
+    #codebit-close .cb-close__newsletter input::placeholder {
+      color: #878E98;
+      opacity: 1;
+    }
+
+    #codebit-close .cb-close__newsletter button {
+      flex: 0 0 35px;
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid rgba(244, 241, 234, .42);
+      border-radius: 8px;
+      color: #F4F1EA;
+      background: linear-gradient(135deg, #84612A, #101F37 60%, #101F37);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 2px 10px rgba(184, 116, 56, .22);
+      cursor: pointer;
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    #codebit-close .cb-close__newsletter button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.18);
+    }
+
+    #codebit-close .cb-close__newsletter button svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    #codebit-close .cb-close__unsubscribe {
+      min-height: 17px;
+      margin: 10px 0 0 2px;
+      color: #878E98;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    #codebit-close .cb-close__form-message {
+      color: #B58A45;
+    }
+
+    #codebit-close .cb-close__footer-bottom {
+      position: relative;
+      z-index: 1;
+      min-height: 340px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 68px;
+      isolation: isolate;
+    }
+
+    #codebit-close .cb-close__copyright {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+      color: #A2A8AF;
+      font-size: 11px;
+      font-weight: 410;
+      letter-spacing: .025em;
+      white-space: nowrap;
+    }
+
+    #codebit-close .cb-close__slash {
+      color: #84612A;
+    }
+
+    #codebit-close .cb-close__copyright strong {
+      color: #E4DFD3;
+      font-weight: 520;
+    }
+
+    #codebit-close .cb-close__hands {
+      position: absolute;
+      z-index: 2;
+      bottom: 26px;
+      width: 36%;
+      max-width: 460px;
+      height: auto;
+      pointer-events: none;
+      filter: drop-shadow(0 0 14px rgba(216, 143, 75, .18)) drop-shadow(0 15px 23px rgba(0, 0, 0, .5));
+    }
+
+    #codebit-close .cb-close__hands-left {
+      left: -8.5%;
+    }
+
+    #codebit-close .cb-close__hands-right {
+      right: -8.5%;
+    }
+
+    #codebit-close .cb-close__wordmark {
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      bottom: -.105em;
+      transform: translateX(-50%);
+      width: max-content;
+      color: var(--cb-close-wordmark);
+      opacity: .78;
+      font-size: clamp(170px, 25.5vw, 360px);
+      font-weight: 220;
+      line-height: .78;
+      letter-spacing: -.095em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #codebit-close :focus-visible {
+      outline: 2px solid var(--cb-close-amber);
+      outline-offset: 3px;
+    }
+
+    @keyframes cb-close-rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cb-close-headline {
+      from {
+        transform: translateY(115%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cb-close-editor {
+      0% {
+        opacity: 0;
+        transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(45px, 26px, 0) scale(.91);
+      }
+
+      100% {
+        opacity: 1;
+        transform: perspective(1250px) rotateY(-15deg) rotateZ(-3.5deg) translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    @media (min-width: 1500px) {
+      #codebit-close .cb-close__shell {
+        width: min(100% - 144px, 1380px);
+      }
+
+      #codebit-close .cb-close__cta {
+        min-height: 700px;
+      }
+
+      #codebit-close .cb-close__editor {
+        right: -7%;
+        top: 8px;
+        width: 67%;
+      }
+    }
+
+    @media (max-width: 1100px) and (min-width: 901px) {
+      #codebit-close .cb-close__shell {
+        width: calc(100% - 72px);
+      }
+
+      #codebit-close .cb-close__cta {
+        min-height: 590px;
+        grid-template-columns: minmax(380px, .95fr) minmax(0, 1fr);
+      }
+
+      #codebit-close .cb-close__editor {
+        width: 64%;
+        right: -10%;
+        top: 54px;
+      }
+
+      #codebit-close .cb-close__footer-main {
+        grid-template-columns: minmax(190px, 1fr) minmax(390px, 2fr);
+        row-gap: 42px;
+      }
+
+      #codebit-close .cb-close__newsletter {
+        grid-column: 2;
+        max-width: 340px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #codebit-close .cb-close__shell {
+        width: min(100% - 48px, 680px);
+      }
+
+      #codebit-close .cb-close__cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 0;
+        padding: 82px 0 26px;
+      }
+
+      #codebit-close .cb-close__copy {
+        max-width: 620px;
+      }
+
+      #codebit-close .cb-close__title {
+        font-size: clamp(57px, 10vw, 82px);
+      }
+
+      #codebit-close .cb-close__description {
+        max-width: 520px;
+      }
+
+      #codebit-close .cb-close__editor {
+        position: relative;
+        width: min(112%, 720px);
+        right: auto;
+        top: auto;
+        align-self: center;
+        margin: 30px -6% -10px 0;
+        transform: perspective(1250px) rotateY(-10deg) rotateZ(-2deg) translate3d(0, 22px, 0) scale(.94);
+        animation: cb-close-editor 1.2s .75s cubic-bezier(.17, .7, .19, 1) forwards;
+      }
+
+      #codebit-close .cb-close__editor img {
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+      }
+
+      #codebit-close .cb-close__footer-main {
+        grid-template-columns: minmax(190px, .95fr) minmax(0, 1.4fr);
+        row-gap: 42px;
+      }
+
+      #codebit-close .cb-close__links {
+        gap: 18px;
+      }
+
+      #codebit-close .cb-close__newsletter {
+        grid-column: 2;
+        max-width: 360px;
+      }
+
+      #codebit-close .cb-close__footer-bottom {
+        min-height: 285px;
+        padding-top: 50px;
+      }
+
+      #codebit-close .cb-close__hands {
+        width: 40%;
+        bottom: 23px;
+      }
+
+      #codebit-close .cb-close__hands-left {
+        left: -8%;
+      }
+
+      #codebit-close .cb-close__hands-right {
+        right: -8%;
+      }
+
+      #codebit-close .cb-close__wordmark {
+        font-size: clamp(155px, 29vw, 245px);
+        bottom: -.08em;
+      }
+    }
+
+    @media (max-width: 620px) {
+      #codebit-close .cb-close__shell {
+        width: calc(100% - 40px);
+      }
+
+      #codebit-close .cb-close__cta {
+        padding-top: 66px;
+      }
+
+      #codebit-close .cb-close__eyebrow {
+        font-size: 11px;
+      }
+
+      #codebit-close .cb-close__title {
+        margin-top: 23px;
+        font-size: clamp(52px, 13.5vw, 73px);
+        letter-spacing: -.078em;
+      }
+
+      #codebit-close .cb-close__description {
+        max-width: 430px;
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      #codebit-close .cb-close__actions {
+        margin-top: 26px;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      #codebit-close .cb-close__glass-button {
+        min-height: 51px;
+      }
+
+      #codebit-close .cb-close__micro-copy {
+        font-size: 10px;
+      }
+
+      #codebit-close .cb-close__editor {
+        width: 122%;
+        margin: 29px -11% -3px -7%;
+      }
+
+      #codebit-close .cb-close__footer {
+        padding-top: 31px;
+      }
+
+      #codebit-close .cb-close__footer-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 38px 24px;
+        padding-bottom: 42px;
+      }
+
+      #codebit-close .cb-close__brand {
+        grid-column: 1 / -1;
+      }
+
+      #codebit-close .cb-close__brand-blurb {
+        max-width: 290px;
+        margin: 15px 0 16px;
+      }
+
+      #codebit-close .cb-close__links {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 13px;
+      }
+
+      #codebit-close .cb-close__link-column h3,
+      #codebit-close .cb-close__newsletter h3 {
+        font-size: 11px;
+        margin-bottom: 15px;
+      }
+
+      #codebit-close .cb-close__link-column ul {
+        gap: 12px;
+      }
+
+      #codebit-close .cb-close__link-column a {
+        font-size: 11px;
+      }
+
+      #codebit-close .cb-close__newsletter {
+        grid-column: 1 / -1;
+        max-width: 390px;
+      }
+
+      #codebit-close .cb-close__newsletter h3 {
+        margin-bottom: 13px;
+      }
+
+      #codebit-close .cb-close__footer-bottom {
+        min-height: 235px;
+        padding-top: 38px;
+      }
+
+      #codebit-close .cb-close__copyright {
+        font-size: 9px;
+        gap: 6px;
+      }
+
+      #codebit-close .cb-close__hands {
+        width: 48%;
+        bottom: 15px;
+      }
+
+      #codebit-close .cb-close__hands-left {
+        left: -13%;
+      }
+
+      #codebit-close .cb-close__hands-right {
+        right: -13%;
+      }
+
+      #codebit-close .cb-close__wordmark {
+        font-size: clamp(126px, 28vw, 190px);
+        bottom: -.035em;
+      }
+    }
+
+    @media (max-width: 390px) {
+      #codebit-close .cb-close__shell {
+        width: calc(100% - 32px);
+      }
+
+      #codebit-close .cb-close__footer-main {
+        column-gap: 15px;
+      }
+
+      #codebit-close .cb-close__links {
+        gap: 10px;
+      }
+
+      #codebit-close .cb-close__link-column a {
+        font-size: 10px;
+      }
+
+      #codebit-close .cb-close__copyright {
+        font-size: 8px;
+        gap: 5px;
+      }
+
+      #codebit-close .cb-close__hands {
+        width: 53%;
+      }
+
+      #codebit-close .cb-close__wordmark {
+        font-size: 124px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      #codebit-close *,
+      #codebit-close *::before,
+      #codebit-close *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      #codebit-close .cb-close__eyebrow,
+      #codebit-close .cb-close__description,
+      #codebit-close .cb-close__actions,
+      #codebit-close .cb-close__editor {
+        opacity: 1;
+        transform: none;
+      }
+
+      #codebit-close .cb-close__headline-line>span {
+        transform: none;
+      }
+    }
 
 
 
-/* Ajuste responsivo estricto para el Footer */
-#codebit-close .cb-close__footer-bottom {
-    overflow: hidden; /* Previene scroll horizontal */
-    display: flex;
-    align-items: flex-end;
-}
-#codebit-close .cb-close__hands {
-    width: clamp(120px, 35vw, 460px) !important;
-    bottom: 0 !important;
-}
-#codebit-close .cb-close__hands-left {
-    left: clamp(-15%, -5vw, 0%) !important;
-}
-#codebit-close .cb-close__hands-right {
-    right: clamp(-15%, -5vw, 0%) !important;
-}
-#codebit-close .cb-close__wordmark {
-    font-size: clamp(80px, 24vw, 360px) !important;
-    bottom: -0.12em !important;
-    width: 100%;
-    text-align: center;
-}
-</style>
+    /* Ajuste responsivo estricto para el Footer */
+    #codebit-close .cb-close__footer-bottom {
+      overflow: hidden;
+      /* Previene scroll horizontal */
+      display: flex;
+      align-items: flex-end;
+    }
 
-<style>
-/* ===== Intro animada del logo ===== */
-#intro{display:none}
-html.intro-on #intro{display:flex}
-html.intro-on,html.intro-on body{overflow:hidden}
-#intro{position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;background:#101F37;clip-path:inset(0 0 0 0);transition:clip-path 1.1s cubic-bezier(.77,0,.18,1);cursor:pointer}
-#intro::before{content:"";position:absolute;inset:0;background:radial-gradient(520px circle at 50% 50%,rgba(181,138,69,.16),transparent 70%);opacity:0;animation:ig 2.6s .6s ease-out forwards}
-#intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#B58A45,transparent);transform:scaleX(0);animation:ib 3.1s .2s cubic-bezier(.6,0,.2,1) forwards}
-#intro.out{clip-path:inset(0 0 100% 0)}
-#intro.out svg{opacity:0;transform:translateY(-18px) scale(1.04)}
-#intro svg{width:min(560px,86vw);height:auto;overflow:visible;transition:opacity .6s,transform 1s cubic-bezier(.77,0,.18,1);position:relative;z-index:1}
-#intro .d{fill:none;stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round}
-#intro .box{stroke:#B58A45;stroke-width:2;animation:idr 1.1s .2s cubic-bezier(.6,0,.2,1) forwards}
-#intro .boxf{fill:#1C3558;opacity:0;animation:ifd .7s 1s forwards}
-#intro .arc{stroke:#B58A45;stroke-width:11;animation:idr 1s .6s cubic-bezier(.6,0,.2,1) forwards}
-#intro .tr{stroke:#F4F1EA;stroke-width:3.5;animation:idr .6s 1.2s ease-out forwards}
-#intro .dot{fill:#F4F1EA;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);animation:ipop .4s 1.7s cubic-bezier(.3,1.6,.5,1) forwards}
-#intro .dot:nth-of-type(2){animation-delay:1.8s}#intro .dot:nth-of-type(3){animation-delay:1.9s}
-#intro .wm{font-family:Inter,'Helvetica Neue',Arial,sans-serif;font-size:40px;font-weight:600;letter-spacing:9px;fill:rgba(244,241,234,0);stroke:#F4F1EA;stroke-width:1;stroke-dasharray:220;stroke-dashoffset:220;animation:itx 1.3s 1s cubic-bezier(.6,0,.2,1) forwards,ifl .6s 2.2s forwards}
-#intro .sub{font-family:Inter,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:5.5px;fill:#B58A45;opacity:0;animation:ifd .8s 2.4s forwards}
-#intro .skip{position:absolute;right:20px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:2;font:500 .75rem 'JetBrains Mono',monospace;letter-spacing:.08em;color:#B5B9BE;background:none;border:1px solid rgba(159,176,204,.3);border-radius:99px;padding:7px 14px;cursor:pointer;transition:color .3s,border-color .3s}
-#intro .skip:hover,#intro .skip:focus-visible{color:#B58A45;border-color:#B58A45;outline:none}
-@keyframes idr{to{stroke-dashoffset:0}}
-@keyframes itx{to{stroke-dashoffset:0}}
-@keyframes ifl{to{fill:#F4F1EA;stroke-width:0}}
-@keyframes ifd{to{opacity:1}}
-@keyframes ipop{to{opacity:1;transform:scale(1)}}
-@keyframes ig{to{opacity:1}}
-@keyframes ib{to{transform:scaleX(1)}}
-@media(prefers-reduced-motion:reduce){#intro{display:none!important}}
-</style>
+    #codebit-close .cb-close__hands {
+      width: clamp(120px, 35vw, 460px) !important;
+      bottom: 0 !important;
+    }
+
+    #codebit-close .cb-close__hands-left {
+      left: clamp(-15%, -5vw, 0%) !important;
+    }
+
+    #codebit-close .cb-close__hands-right {
+      right: clamp(-15%, -5vw, 0%) !important;
+    }
+
+    #codebit-close .cb-close__wordmark {
+      font-size: clamp(80px, 24vw, 360px) !important;
+      bottom: -0.12em !important;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+
+  <style>
+    /* ===== Intro animada del logo ===== */
+    #intro {
+      display: none
+    }
+
+    html.intro-on #intro {
+      display: flex
+    }
+
+    html.intro-on,
+    html.intro-on body {
+      overflow: hidden
+    }
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      background: #101F37;
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 1.1s cubic-bezier(.77, 0, .18, 1);
+      cursor: pointer
+    }
+
+    #intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(520px circle at 50% 50%, rgba(181, 138, 69, .16), transparent 70%);
+      opacity: 0;
+      animation: ig 2.6s .6s ease-out forwards
+    }
+
+    #intro::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #B58A45, transparent);
+      transform: scaleX(0);
+      animation: ib 3.1s .2s cubic-bezier(.6, 0, .2, 1) forwards
+    }
+
+    #intro.out {
+      clip-path: inset(0 0 100% 0)
+    }
+
+    #intro.out svg {
+      opacity: 0;
+      transform: translateY(-18px) scale(1.04)
+    }
+
+    #intro svg {
+      width: min(560px, 86vw);
+      height: auto;
+      overflow: visible;
+      transition: opacity .6s, transform 1s cubic-bezier(.77, 0, .18, 1);
+      position: relative;
+      z-index: 1
+    }
+
+    #intro .d {
+      fill: none;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      stroke-linecap: round
+    }
+
+    #intro .box {
+      stroke: #B58A45;
+      stroke-width: 2;
+      animation: idr 1.1s .2s cubic-bezier(.6, 0, .2, 1) forwards
+    }
+
+    #intro .boxf {
+      fill: #1C3558;
+      opacity: 0;
+      animation: ifd .7s 1s forwards
+    }
+
+    #intro .arc {
+      stroke: #B58A45;
+      stroke-width: 11;
+      animation: idr 1s .6s cubic-bezier(.6, 0, .2, 1) forwards
+    }
+
+    #intro .tr {
+      stroke: #F4F1EA;
+      stroke-width: 3.5;
+      animation: idr .6s 1.2s ease-out forwards
+    }
+
+    #intro .dot {
+      fill: #F4F1EA;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: scale(.2);
+      animation: ipop .4s 1.7s cubic-bezier(.3, 1.6, .5, 1) forwards
+    }
+
+    #intro .dot:nth-of-type(2) {
+      animation-delay: 1.8s
+    }
+
+    #intro .dot:nth-of-type(3) {
+      animation-delay: 1.9s
+    }
+
+    #intro .wm {
+      font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: 9px;
+      fill: rgba(244, 241, 234, 0);
+      stroke: #F4F1EA;
+      stroke-width: 1;
+      stroke-dasharray: 220;
+      stroke-dashoffset: 220;
+      animation: itx 1.3s 1s cubic-bezier(.6, 0, .2, 1) forwards, ifl .6s 2.2s forwards
+    }
+
+    #intro .sub {
+      font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 5.5px;
+      fill: #B58A45;
+      opacity: 0;
+      animation: ifd .8s 2.4s forwards
+    }
+
+    #intro .skip {
+      position: absolute;
+      right: 20px;
+      bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+      z-index: 2;
+      font: 500 .75rem 'JetBrains Mono', monospace;
+      letter-spacing: .08em;
+      color: #B5B9BE;
+      background: none;
+      border: 1px solid rgba(159, 176, 204, .3);
+      border-radius: 99px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: color .3s, border-color .3s
+    }
+
+    #intro .skip:hover,
+    #intro .skip:focus-visible {
+      color: #B58A45;
+      border-color: #B58A45;
+      outline: none
+    }
+
+    @keyframes idr {
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @keyframes itx {
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @keyframes ifl {
+      to {
+        fill: #F4F1EA;
+        stroke-width: 0
+      }
+    }
+
+    @keyframes ifd {
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes ipop {
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @keyframes ig {
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes ib {
+      to {
+        transform: scaleX(1)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      #intro {
+        display: none !important
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div id="intro" aria-hidden="true">
-<svg viewBox="0 0 520 160" role="img" aria-label="CodeBit, desarrollo web">
-<rect class="boxf" x="10" y="10" width="140" height="140" rx="36"/>
-<rect class="d box" pathLength="1" x="10" y="10" width="140" height="140" rx="36"/>
-<path class="d arc" pathLength="1" d="M98 50A34 34 0 1 0 98 110"/>
-<path class="d tr" pathLength="1" d="M92 66H118"/><path class="d tr" pathLength="1" d="M92 80H128"/><path class="d tr" pathLength="1" d="M92 94H118"/>
-<circle class="dot" cx="122" cy="66" r="3.5"/><circle class="dot" cx="132" cy="80" r="3.5"/><circle class="dot" cx="122" cy="94" r="3.5"/>
-<text class="wm" x="182" y="82">CODEBIT</text>
-<text class="sub" x="184" y="108">DESARROLLO WEB</text>
-</svg>
-<button class="skip" type="button" aria-label="Saltar la introducción">Saltar</button>
-</div>
+  <div id="intro" aria-hidden="true">
+    <svg viewBox="0 0 520 160" role="img" aria-label="CodeBit, desarrollo web">
+      <rect class="boxf" x="10" y="10" width="140" height="140" rx="36" />
+      <rect class="d box" pathLength="1" x="10" y="10" width="140" height="140" rx="36" />
+      <path class="d arc" pathLength="1" d="M98 50A34 34 0 1 0 98 110" />
+      <path class="d tr" pathLength="1" d="M92 66H118" />
+      <path class="d tr" pathLength="1" d="M92 80H128" />
+      <path class="d tr" pathLength="1" d="M92 94H118" />
+      <circle class="dot" cx="122" cy="66" r="3.5" />
+      <circle class="dot" cx="132" cy="80" r="3.5" />
+      <circle class="dot" cx="122" cy="94" r="3.5" />
+      <text class="wm" x="182" y="82">CODEBIT</text>
+      <text class="sub" x="184" y="108">DESARROLLO WEB</text>
+    </svg>
+    <button class="skip" type="button" aria-label="Saltar la introducción">Saltar</button>
+  </div>
 
-<header><div class="w"><nav>
-<a href="#inicio" class="logo"><img src="favicon.svg" alt="Logo CodeBit" width="36" height="36"><span>CODEBIT</span></a>
-<div class="nl"><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#clientes">Clientes</a><a href="#paquetes">Paquetes</a><a href="#faq">Preguntas</a><a class="btn btn-a" href="#contacto">Cotizar</a></div>
-</nav></div></header>
+  <header>
+    <div class="w">
+      <nav>
+        <a href="#inicio" class="logo"><img src="favicon.svg" alt="Logo CodeBit" width="36"
+            height="36"><span>CODEBIT</span></a>
+        <div class="nl"><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a
+            href="#clientes">Clientes</a><a href="#paquetes">Paquetes</a><a href="#faq">Preguntas</a><a
+            class="btn btn-a" href="#contacto">Cotizar</a></div>
+      </nav>
+    </div>
+  </header>
 
-<main>
-<div id="codebit-top"><div class="cb-close__shell">
-<section class="cb-close__cta" id="inicio" aria-labelledby="cb-close-title">
-      <div class="cb-close__copy">
-        <div class="cb-close__eyebrow">
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.35 9.45 6.1 14.2 7.55 9.45 9 8 13.75 6.55 9 1.8 7.55 6.55 6.1 8 1.35Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="m12.8 10.8.55 1.75 1.75.55-1.75.55-.55 1.75-.55-1.75-1.75-.55 1.75-.55.55-1.75Z" fill="currentColor"/></svg>
-          <span>Hagamos realidad tu idea</span>
-        </div>
-        <h1 class="cb-close__title" id="cb-close-title">
-          <span class="cb-close__headline-line"><span>Tu próxima web</span></span>
-          <span class="cb-close__headline-line"><span>empieza aquí<span class="cb-close__accent">.</span></span></span>
-        </h1>
-        <p class="cb-close__description">Cuéntanos qué necesita tu negocio. Diseñamos y desarrollamos páginas web, tiendas en línea y experiencias digitales listas para convertir visitas en clientes.</p>
-        <div class="cb-close__actions">
-          <a class="cb-close__glass-button" href="#contacto">
-            <span>Cotizar mi proyecto</span>
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <span class="cb-close__micro-copy">Tu idea merece una gran página.</span>
-        </div>
+  <main>
+    <div id="codebit-top">
+      <div class="cb-close__shell">
+        <section class="cb-close__cta" id="inicio" aria-labelledby="cb-close-title">
+          <div class="cb-close__copy">
+            <div class="cb-close__eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 1.35 9.45 6.1 14.2 7.55 9.45 9 8 13.75 6.55 9 1.8 7.55 6.55 6.1 8 1.35Z"
+                  stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" />
+                <path d="m12.8 10.8.55 1.75 1.75.55-1.75.55-.55 1.75-.55-1.75-1.75-.55 1.75-.55.55-1.75Z"
+                  fill="currentColor" />
+              </svg>
+              <span>Hagamos realidad tu idea</span>
+            </div>
+            <h1 class="cb-close__title" id="cb-close-title">
+              <span class="cb-close__headline-line"><span>Tu próxima web</span></span>
+              <span class="cb-close__headline-line"><span>empieza aquí<span
+                    class="cb-close__accent">.</span></span></span>
+            </h1>
+            <p class="cb-close__description">Cuéntanos qué necesita tu negocio. Diseñamos y desarrollamos páginas web,
+              tiendas en línea y experiencias digitales listas para convertir visitas en clientes.</p>
+            <div class="cb-close__actions">
+              <a class="cb-close__glass-button" href="#contacto">
+                <span>Cotizar mi proyecto</span>
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <span class="cb-close__micro-copy">Tu idea merece una gran página.</span>
+            </div>
+          </div>
+          <div class="cb-close__editor" aria-hidden="true">
+            <img
+              src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/5bc1d856-0342-40d4-b7ca-c490ac20624a.png"
+              alt="">
+          </div>
+        </section>
       </div>
-      <div class="cb-close__editor" aria-hidden="true">
-        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/5bc1d856-0342-40d4-b7ca-c490ac20624a.png" alt="">
+    </div>
+
+    <div class="mq" aria-hidden="true">
+      <div><span>Páginas web</span><span>Tiendas en línea</span><span>Landing
+          pages</span><span>Rediseño</span><span>Tarjetas NFC</span><span>Menús QR</span><span>Bodas
+          digitales</span><span>Soporte</span><span>Páginas web</span><span>Tiendas en línea</span><span>Landing
+          pages</span><span>Rediseño</span><span>Tarjetas NFC</span><span>Menús QR</span><span>Bodas
+          digitales</span><span>Soporte</span></div>
+    </div>
+
+    <section id="servicios" class="cream">
+      <div class="w">
+        <span class="tag rv">01 / servicios</span>
+        <h2 class="rv">Todo lo que tu negocio necesita <em>en internet.</em></h2>
+        <p class="lead rv">Cada sitio incluye diseño adaptable a celular, tablet y computadora.</p>
+        <div class="sv rv">
+          <a href="#contacto"><span class="n">01</span>
+            <h3>Páginas web profesionales</h3>
+            <p>Tu negocio abierto 24/7, claro, rápido y fácil de encontrar en Google.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">02</span>
+            <h3>Diseño personalizado</h3>
+            <p>Sin plantillas genéricas: tus colores, tu estilo y tus clientes.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">03</span>
+            <h3>Tiendas en línea</h3>
+            <p>Catálogo, carrito, pagos y pedidos. Vende mientras duermes.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">04</span>
+            <h3>Landing pages</h3>
+            <p>Una página, un objetivo. Ideal para campañas y anuncios.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">05</span>
+            <h3>Rediseño y optimización</h3>
+            <p>Tu web actual, pero más rápida, más clara y que sí consigue contactos.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">06</span>
+            <h3>Mantenimiento y soporte</h3>
+            <p>Actualizaciones, respaldos y cambios mensuales.</p><span class="ar">↗</span>
+          </a>
+          <a href="#contacto"><span class="n">07</span>
+            <h3>NFC, QR y bodas digitales</h3>
+            <p>Tarjetas NFC, menús QR, invitaciones y álbumes colaborativos para eventos.</p><span class="ar">↗</span>
+          </a>
+        </div>
       </div>
     </section>
-</div></div>
 
-<div class="mq" aria-hidden="true"><div><span>Páginas web</span><span>Tiendas en línea</span><span>Landing pages</span><span>Rediseño</span><span>Tarjetas NFC</span><span>Menús QR</span><span>Bodas digitales</span><span>Soporte</span><span>Páginas web</span><span>Tiendas en línea</span><span>Landing pages</span><span>Rediseño</span><span>Tarjetas NFC</span><span>Menús QR</span><span>Bodas digitales</span><span>Soporte</span></div></div>
-
-<section id="servicios" class="cream"><div class="w">
-<span class="tag rv">01 / servicios</span>
-<h2 class="rv">Todo lo que tu negocio necesita <em>en internet.</em></h2>
-<p class="lead rv">Cada sitio incluye diseño adaptable a celular, tablet y computadora.</p>
-<div class="sv rv">
-<a href="#contacto"><span class="n">01</span><h3>Páginas web profesionales</h3><p>Tu negocio abierto 24/7, claro, rápido y fácil de encontrar en Google.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">02</span><h3>Diseño personalizado</h3><p>Sin plantillas genéricas: tus colores, tu estilo y tus clientes.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">03</span><h3>Tiendas en línea</h3><p>Catálogo, carrito, pagos y pedidos. Vende mientras duermes.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">04</span><h3>Landing pages</h3><p>Una página, un objetivo. Ideal para campañas y anuncios.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">05</span><h3>Rediseño y optimización</h3><p>Tu web actual, pero más rápida, más clara y que sí consigue contactos.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">06</span><h3>Mantenimiento y soporte</h3><p>Actualizaciones, respaldos y cambios mensuales.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">07</span><h3>NFC, QR y bodas digitales</h3><p>Tarjetas NFC, menús QR, invitaciones y álbumes colaborativos para eventos.</p><span class="ar">↗</span></a>
-</div></div></section>
-
-<section><div class="w">
-<span class="tag rv">02 / antes y después</span>
-<h2 class="rv">De plantilla genérica a <em>diseñado.</em></h2>
-<p class="lead rv">Arrastra para ver la diferencia entre una web que cumple y una que convence.</p>
-<div class="ba rv" id="ba">
-<div class="ba-c ba-b" aria-hidden="true">
-<div class="bf-top">Visitas: 000123 &nbsp;|&nbsp; Ultima actualizacion: 12/03/2009</div>
-<div class="bf-ban"><span class="bf-w">¡¡ BIENVENIDOS !!</span><span class="bf-t">PASTELERIA DULCE AURORA</span><span class="bf-s">"Los mejores pasteles de la ciudad"</span></div>
-<div class="bf-menu"><u>Inicio</u> | <u>Quienes somos</u> | <u>Productos</u> | <u>Galeria</u> | <u>Links</u> | <u>Contactenos</u></div>
-<div class="bf-row">
-<div class="bf-side"><b>MENU</b><br>- Pasteles<br>- Galletas<br>- Pan dulce<br>- Otros<br>- Libro de visitas<br><br><span class="bf-red">NUEVO!!!</span><br><u>Haga click aqui</u></div>
-<div class="bf-main"><b>QUIENES SOMOS</b>Somos una empresa dedicada a la elaboracion de pasteles de todo tipo desde hace muchos años, con calidad y servicio al cliente. Contamos con personal capacitado y ofrecemos diferentes productos para toda ocasion.
-<div class="bf-imgs"><span class="bf-i">[foto1.jpg]</span><span class="bf-i">[foto2.jpg]</span><span class="bf-i">[foto3.jpg]</span></div>
-<span class="bf-red">Para pedidos llamar al telefono 0000-0000 en horario de oficina.</span></div>
-</div>
-<div class="bf-ft">Pagina optimizada para Internet Explorer 6 · Resolucion 800x600 · Derechos reservados</div>
-</div>
-<div class="ba-c ba-a" aria-hidden="true">
-<div class="af-nav"><div class="af-logo"><i></i>Dulce Aurora</div><div class="af-lk"><span>Pasteles</span><span>Personalizados</span><span>Nosotros</span><span>Contacto</span></div><div class="af-btn">Hacer pedido</div></div>
-<div class="af-hero">
-<div><div class="af-kick">// PASTELERÍA ARTESANAL</div><div class="af-h">Pasteles que hacen <span>inolvidable</span> cada celebración.</div><div class="af-p">Diseños a la medida, ingredientes frescos y pedidos en menos de un minuto por WhatsApp.</div><div class="af-bs"><span class="af-btn">Pedir por WhatsApp</span><span class="af-g">Ver catálogo</span></div></div>
-<div class="af-vis"><div class="af-cake"><span class="af-pl"></span><span class="af-t1"></span><span class="af-t2"></span><span class="af-t3"></span><span class="af-be"></span></div><span class="af-ch" style="top:34px;left:0"><i></i>Entrega el mismo día</span><span class="af-ch" style="bottom:60px;right:0"><i></i>Hecho a mano</span></div>
-</div>
-<div class="af-cards">
-<div class="af-card"><span class="af-th" style="background:linear-gradient(135deg,#F4F1EA,#D8CDB4)"></span><div><b>Pasteles de boda</b><small>Diseños a la medida</small></div></div>
-<div class="af-card"><span class="af-th" style="background:linear-gradient(135deg,#CFA562,#8F6A2E)"></span><div><b>Cumpleaños</b><small>Sabores y decoración</small></div></div>
-<div class="af-card"><span class="af-th" style="background:linear-gradient(135deg,#F4F1EA,#E4D9C0)"></span><div><b>Postres y cupcakes</b><small>Para regalar o compartir</small></div></div>
-</div>
-</div>
-<span class="ba-lb l">ANTES</span><span class="ba-lb r">DESPUÉS</span>
-<div class="ba-h"></div>
-<input type="range" min="3" max="97" step=".1" value="50" aria-label="Comparar antes y después">
-</div>
-<p class="ba-note rv">Ejemplo ilustrativo: la misma pastelería, antes y después de un rediseño profesional.</p>
-</div></section>
-
-
-<section id="proyectos" class="cream">
-  <div class="w">
-
-    <span class="tag rv">03 / proyectos</span>
-    <h2 class="rv">Trabajo real, <em>negocios reales.</em></h2>
-    <p class="lead rv">Una muestra de lo que hemos construido.</p>
-
-    <div class="wk" style="color:var(--cream)">
-
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="weddings.jpeg" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">BODA / 2026</span>
-        <h3>Codebit Weddings</h3>
-        <p>Save the date, invitación formal, check-in de invitados y cámaras desechables para el álbum de los novios.</p>
-      </a>
-
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="menu.png" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">MENÚ DIGITAL</span>
-        <h3>Restaurante</h3>
-        <p>Menú con QR, fácil de actualizar.</p>
-      </a>
-
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="postres.png" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">SITIO WEB</span>
-        <h3>Pastelería</h3>
-        <p>Catálogo con pedidos por WhatsApp</p>
-      </a>
-
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="nfc.png" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">TARJETA NFC</span>
-        <h3>Presentación digital</h3>
-        <p>Un toque y tu contacto, tu web y tus redes se abren en el celular.</p>
-      </a>
-
-    </div>
-  </div>
-</section>
+    <section>
+      <div class="w">
+        <span class="tag rv">02 / antes y después</span>
+        <h2 class="rv">De plantilla genérica a <em>diseñado.</em></h2>
+        <p class="lead rv">Arrastra para ver la diferencia entre una web que cumple y una que convence.</p>
+        <div class="ba rv" id="ba">
+          <div class="ba-c ba-b" aria-hidden="true">
+            <div class="bf-top">Visitas: 000123 &nbsp;|&nbsp; Ultima actualizacion: 12/03/2009</div>
+            <div class="bf-ban"><span class="bf-w">¡¡ BIENVENIDOS !!</span><span class="bf-t">PASTELERIA DULCE
+                AURORA</span><span class="bf-s">"Los mejores pasteles de la ciudad"</span></div>
+            <div class="bf-menu"><u>Inicio</u> | <u>Quienes somos</u> | <u>Productos</u> | <u>Galeria</u> | <u>Links</u>
+              | <u>Contactenos</u></div>
+            <div class="bf-row">
+              <div class="bf-side"><b>MENU</b><br>- Pasteles<br>- Galletas<br>- Pan dulce<br>- Otros<br>- Libro de
+                visitas<br><br><span class="bf-red">NUEVO!!!</span><br><u>Haga click aqui</u></div>
+              <div class="bf-main"><b>QUIENES SOMOS</b>Somos una empresa dedicada a la elaboracion de pasteles de todo
+                tipo desde hace muchos años, con calidad y servicio al cliente. Contamos con personal capacitado y
+                ofrecemos diferentes productos para toda ocasion.
+                <div class="bf-imgs"><span class="bf-i">[foto1.jpg]</span><span class="bf-i">[foto2.jpg]</span><span
+                    class="bf-i">[foto3.jpg]</span></div>
+                <span class="bf-red">Para pedidos llamar al telefono 0000-0000 en horario de oficina.</span>
+              </div>
+            </div>
+            <div class="bf-ft">Pagina optimizada para Internet Explorer 6 · Resolucion 800x600 · Derechos reservados
+            </div>
+          </div>
+          <div class="ba-c ba-a" aria-hidden="true">
+            <div class="af-nav">
+              <div class="af-logo"><i></i>Dulce Aurora</div>
+              <div class="af-lk">
+                <span>Pasteles</span><span>Personalizados</span><span>Nosotros</span><span>Contacto</span></div>
+              <div class="af-btn">Hacer pedido</div>
+            </div>
+            <div class="af-hero">
+              <div>
+                <div class="af-kick">// PASTELERÍA ARTESANAL</div>
+                <div class="af-h">Pasteles que hacen <span>inolvidable</span> cada celebración.</div>
+                <div class="af-p">Diseños a la medida, ingredientes frescos y pedidos en menos de un minuto por
+                  WhatsApp.</div>
+                <div class="af-bs"><span class="af-btn">Pedir por WhatsApp</span><span class="af-g">Ver catálogo</span>
+                </div>
+              </div>
+              <div class="af-vis">
+                <div class="af-cake"><span class="af-pl"></span><span class="af-t1"></span><span
+                    class="af-t2"></span><span class="af-t3"></span><span class="af-be"></span></div><span class="af-ch"
+                  style="top:34px;left:0"><i></i>Entrega el mismo día</span><span class="af-ch"
+                  style="bottom:60px;right:0"><i></i>Hecho a mano</span>
+              </div>
+            </div>
+            <div class="af-cards">
+              <div class="af-card"><span class="af-th"
+                  style="background:linear-gradient(135deg,#F4F1EA,#D8CDB4)"></span>
+                <div><b>Pasteles de boda</b><small>Diseños a la medida</small></div>
+              </div>
+              <div class="af-card"><span class="af-th"
+                  style="background:linear-gradient(135deg,#CFA562,#8F6A2E)"></span>
+                <div><b>Cumpleaños</b><small>Sabores y decoración</small></div>
+              </div>
+              <div class="af-card"><span class="af-th"
+                  style="background:linear-gradient(135deg,#F4F1EA,#E4D9C0)"></span>
+                <div><b>Postres y cupcakes</b><small>Para regalar o compartir</small></div>
+              </div>
+            </div>
+          </div>
+          <span class="ba-lb l">ANTES</span><span class="ba-lb r">DESPUÉS</span>
+          <div class="ba-h"></div>
+          <input type="range" min="3" max="97" step=".1" value="50" aria-label="Comparar antes y después">
+        </div>
+        <p class="ba-note rv">Ejemplo ilustrativo: la misma pastelería, antes y después de un rediseño profesional.</p>
+      </div>
+    </section>
 
 
-<section id="clientes" style="background:var(--bg2)"><div class="w">
-<span class="tag rv">04 / clientes</span>
-<h2 class="rv">Algunas empresas que <em>confiaron en nosotros.</em></h2>
-<p class="lead rv">Soluciones tecnológicas hechas a la medida de cada sector.</p>
-<!-- IMPORTANTE: deja solo lo que realmente desarrollaste para cada cliente y ajusta los textos -->
+    <section id="proyectos" class="cream">
+      <div class="w">
 
-<div class="cl">
-  <article class="cc rv">
-    <div class="mg">
-      <img src="Logoblanco1.png" alt="Logo Constructora DC">
-    </div>
-    <span class="t">CONSTRUCCIÓN / OBRA CIVIL</span>
-    <h3>Constructora DC</h3>
-    <ul>
-      <li>Sitio web corporativo con portafolio y galería de obras</li>
-      <li>Formulario de cotización de proyectos con envío directo a WhatsApp</li>
-      <li>Tarjetas NFC para ingenieros y residentes de obra</li>
-      <li>Códigos QR en obras y letreros con la ficha de cada proyecto</li>
-      <li>Seguimiento de avance de obra con fotos para el cliente</li>
-    </ul>
-    <div class="chips">
-      <span>Sitio web</span><span>NFC</span><span>QR</span>
-      <span>Formularios</span><span>Responsive</span>
-    </div>
-  </article>
+        <span class="tag rv">03 / proyectos</span>
+        <h2 class="rv">Trabajo real, <em>negocios reales.</em></h2>
+        <p class="lead rv">Una muestra de lo que hemos construido.</p>
 
-  <article class="cc rv">
-    <div class="mg">
-      <img src="negociosjuridicos.png" alt="Logo Negocios Jurídicos">
-    </div>
-    <span class="t">SERVICIOS LEGALES / ABOGADOS</span>
-    <h3>Negocios Jurídicos</h3>
-    <ul>
-      <li>Sitio web institucional con áreas de práctica y perfil de cada abogado</li>
-      <li>Formulario de consulta inicial con aviso de privacidad</li>
-      <li>Agenda de citas en línea</li>
-      <li>Tarjetas NFC de presentación para los abogados</li>
-      <li>Artículos legales para posicionarse en Google (SEO)</li>
-    </ul>
-    <div class="chips">
-      <span>Sitio web</span><span>Agenda</span><span>NFC</span>
-      <span>SEO</span><span>Responsive</span>
-    </div>
-  </article>
-</div>
-</div>
-</section>
+        <div class="wk" style="color:var(--cream)">
 
-
-<section id="proceso"><div class="w">
-<span class="tag rv">05 / proceso</span>
-<h2 class="rv">Cuatro pasos, <em>sin sorpresas.</em></h2>
-<p class="lead rv">Comunicación clara en cada etapa.</p>
-<div class="st rv" id="st">
-<div><span class="n">1</span><h3>Diagnóstico</h3><p>Hablamos de tu negocio y tus objetivos. Cotización en 48 horas.</p></div>
-<div><span class="n">2</span><h3>Diseño</h3><p>Te mostramos la propuesta visual antes de programar.</p></div>
-<div><span class="n">3</span><h3>Desarrollo</h3><p>Código limpio, probado en celular y computadora.</p></div>
-<div><span class="n">4</span><h3>Lanzamiento</h3><p>Publicamos tu sitio y te acompañamos después.</p></div>
-</div></div></section>
-
-<section id="paquetes" style="background:var(--bg2)"><div class="w">
-<span class="tag rv">06 / paquetes</span>
-<h2 class="rv">Elige tu <em>punto de partida.</em></h2>
-<p class="lead rv">Precios de referencia; la cotización final depende de tu proyecto.</p>
-<div class="pk">
-<div class="pc rv"><h3>Esencial</h3><div class="pr">desde Q399</div><ul><li>Landing o sitio de 1 a 3 secciones</li><li>Diseño responsive</li><li>Botón de WhatsApp</li><li>SEO básico</li></ul><a class="btn btn-g" href="#contacto">Cotizar Esencial</a></div>
-<div class="pc hot rv"><h3>Profesional</h3><div class="pr">desde Q799· el más elegido</div><ul><li>Sitio de 5 o más secciones</li><li>Diseño 100% a la medida</li><li>Formulario y analítica</li><li>1 mes de soporte</li></ul><a class="btn btn-a" href="#contacto">Cotizar Profesional</a></div>
-<div class="pc rv"><h3>Tienda en línea</h3><div class="pr">desde Q1,499</div><ul><li>Catálogo y carrito</li><li>Pagos y pedidos</li><li>Panel de productos</li><li>Capacitación de uso</li></ul><a class="btn btn-g" href="#contacto">Cotizar Tienda</a></div>
-</div></div></section>
-
-<section class="ph2"><div class="w">
-<div>
-<span class="tag rv">07 / más allá de la pantalla</span>
-<h2 class="rv">Lo digital, también <em>en persona.</em></h2>
-<ul class="rv"><li><b>Tarjetas NFC.</b> Un toque y se abre tu presentación. Sin apps.</li><li><b>Menús QR.</b> Actualizables al instante, sin imprimir de nuevo.</li><li><b>Bodas digitales.</b> Invitación y álbum donde cada invitado aporta sus fotos.</li><li><b>Automatización.</b> Arduino y sensores conectados a software a la medida.</li></ul>
-<a class="btn btn-a rv" href="#contacto">Preguntar por NFC, QR o bodas</a>
-</div>
-<div class="ph rv"><video autoplay loop muted playsinline poster="codebit-icono-512.png"><source src="presentacion.mp4" type="video/mp4"></video></div>
-</div></section>
-
-<section id="faq" class="cream"><div class="w" style="max-width:860px">
-<span class="tag rv">08 / preguntas</span>
-<h2 class="rv">Resolvemos <em>tus dudas.</em></h2>
-<div style="margin-top:40px" class="rv">
-<details><summary>¿Cuánto cuesta una página web?</summary><p>Depende de las secciones, las funciones y el diseño. Tenemos paquetes desde un sitio sencillo hasta tiendas completas. Escríbenos y te damos una cotización gratuita.</p></details>
-<details><summary>¿Cuánto tiempo toma?</summary><p>Una landing puede estar lista en pocos días; un sitio completo toma algunas semanas. Te damos fechas concretas en la propuesta.</p></details>
-<details><summary>¿Incluye dominio y hosting?</summary><p>Te ayudamos a elegirlos y configurarlos a tu nombre, y también podemos desplegar en la nube según tu caso.</p></details>
-<details><summary>¿Se verá bien en celular?</summary><p>Sí. Todos los sitios son responsive y los probamos en celular, tablet y computadora.</p></details>
-<details><summary>¿Puedo pedir cambios después de la entrega?</summary><p>Sí. Ofrecemos planes de mantenimiento y soporte para actualizar contenido y mantener tu sitio seguro.</p></details>
-<details><summary>¿Hacen invitaciones y álbumes para bodas?</summary><p>Sí: save the date, invitación formal y una página donde los invitados toman o eligen fotos para el álbum de los novios.</p></details>
-</div></div></section>
-
-<section id="contacto"><div class="w ct">
-<div>
-<span class="tag rv">09 / contacto</span>
-<h2 class="rv">Cuéntanos <em>tu idea.</em></h2>
-<p class="lead rv">Completa el formulario y se abrirá WhatsApp con tu mensaje listo. Te respondemos con una cotización clara.</p>
-<a class="btn btn-g rv" href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web">Escribir directo por WhatsApp</a>
-</div>
-<form id="f" class="rv">
-<label>NOMBRE<input name="n" required autocomplete="name"></label>
-<label>TU NEGOCIO<input name="b" autocomplete="organization"></label>
-<label>QUÉ NECESITAS<select name="t"><option>Página web profesional</option><option>Tienda en línea</option><option>Landing page</option><option>Rediseño de mi web</option><option>Mantenimiento y soporte</option><option>Tarjeta NFC / Menú QR</option><option>Invitación y álbum de boda</option><option>Otro</option></select></label>
-<label>CUÉNTANOS MÁS (OPCIONAL)<textarea name="m"></textarea></label>
-<button class="btn btn-a" type="submit" style="justify-content:center">Enviar por WhatsApp</button>
-</form>
-</div></section>
-</main>
-
-
-
-
-<div id="codebit-close">
-  <div class="cb-close__shell">
-    
-
-    <footer class="cb-close__footer" aria-label="Pie de página de CodeBit">
-      <div class="cb-close__footer-main">
-        <div class="cb-close__brand">
-          <a class="cb-close__brand-mark" href="#inicio" aria-label="CodeBit, inicio">
-            <img src="favicon.svg" alt="" width="29" height="29">
-            <span>CodeBit</span>
+          <a class="tl rv" href="javascript:void(0)" onclick="abrirModalBoda()">
+            <img class="img-proyecto" src="sobreboda.png" alt="Proyecto Codebit Weddings">
+            <span class="t">BODA / 2026 / toca la imagen para interactuar</span>
+            <h3>Codebit Weddings</h3>
+            <p>Save the date, invitación formal, check-in de invitados y cámaras desechables para el álbum de los
+              novios.</p>
           </a>
-          <p class="cb-close__brand-blurb">Diseñamos experiencias digitales para que tu negocio se vea profesional y crezca en internet.</p>
-          <div class="cb-close__socials" aria-label="Redes sociales">
-            <a class="cb-close__social-link" href="https://www.instagram.com/codebitgt/" target="_blank" rel="noopener me" aria-label="Instagram de CodeBit (@codebitgt)">
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.2" y="2.2" width="11.6" height="11.6" rx="3.3" stroke="currentColor" stroke-width="1.35"/><circle cx="8" cy="8" r="2.65" stroke="currentColor" stroke-width="1.3"/><circle cx="11.7" cy="4.45" r=".8" fill="currentColor"/></svg>
-            </a>
+
+          <a class="tl rv" href="#contacto">
+            <img class="img-proyecto" src="menu.png" alt="Menú Digital Restaurante">
+            <span class="t">MENÚ DIGITAL</span>
+            <h3>Restaurante</h3>
+            <p>Menú con QR, fácil de actualizar.</p>
+          </a>
+
+          <a class="tl rv" href="#contacto">
+            <img class="img-proyecto" src="postres.png" alt="Sitio Web Pastelería">
+            <span class="t">SITIO WEB</span>
+            <h3>Pastelería</h3>
+            <p>Catálogo con pedidos por WhatsApp</p>
+          </a>
+
+          <a class="tl rv" href="#contacto">
+            <img class="img-proyecto" src="nfc.png" alt="Tarjeta NFC Presentación Digital">
+            <span class="t">TARJETA NFC</span>
+            <h3>Presentación digital</h3>
+            <p>Un toque y tu contacto, tu web y tus redes se abren en el celular.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="clientes" style="background:var(--bg2)">
+      <div class="w">
+        <span class="tag rv">04 / clientes</span>
+        <h2 class="rv">Algunas empresas que <em>confiaron en nosotros.</em></h2>
+        <p class="lead rv">Soluciones tecnológicas hechas a la medida de cada sector.</p>
+        <!-- IMPORTANTE: deja solo lo que realmente desarrollaste para cada cliente y ajusta los textos -->
+
+        <div class="cl">
+          <article class="cc rv">
+            <div class="mg">
+              <img src="Logoblanco1.png" alt="Logo Constructora DC">
+            </div>
+            <span class="t">CONSTRUCCIÓN / OBRA CIVIL</span>
+            <h3>Constructora DC</h3>
+            <ul>
+              <li>Sitio web corporativo con portafolio y galería de obras</li>
+              <li>Formulario de cotización de proyectos con envío directo a WhatsApp</li>
+              <li>Tarjetas NFC para ingenieros y residentes de obra</li>
+              <li>Códigos QR en obras y letreros con la ficha de cada proyecto</li>
+              <li>Seguimiento de avance de obra con fotos para el cliente</li>
+            </ul>
+            <div class="chips">
+              <span>Sitio web</span><span>NFC</span><span>QR</span>
+              <span>Formularios</span><span>Responsive</span>
+            </div>
+          </article>
+
+          <article class="cc rv">
+            <div class="mg">
+              <img src="negociosjuridicos.png" alt="Logo Negocios Jurídicos">
+            </div>
+            <span class="t">SERVICIOS LEGALES / ABOGADOS</span>
+            <h3>Negocios Jurídicos</h3>
+            <ul>
+              <li>Sitio web institucional con áreas de práctica y perfil de cada abogado</li>
+              <li>Formulario de consulta inicial con aviso de privacidad</li>
+              <li>Agenda de citas en línea</li>
+              <li>Tarjetas NFC de presentación para los abogados</li>
+              <li>Artículos legales para posicionarse en Google (SEO)</li>
+            </ul>
+            <div class="chips">
+              <span>Sitio web</span><span>Agenda</span><span>NFC</span>
+              <span>SEO</span><span>Responsive</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="proceso">
+      <div class="w">
+        <span class="tag rv">05 / proceso</span>
+        <h2 class="rv">Cuatro pasos, <em>sin sorpresas.</em></h2>
+        <p class="lead rv">Comunicación clara en cada etapa.</p>
+        <div class="st rv" id="st">
+          <div><span class="n">1</span>
+            <h3>Diagnóstico</h3>
+            <p>Hablamos de tu negocio y tus objetivos. Cotización en 48 horas.</p>
+          </div>
+          <div><span class="n">2</span>
+            <h3>Diseño</h3>
+            <p>Te mostramos la propuesta visual antes de programar.</p>
+          </div>
+          <div><span class="n">3</span>
+            <h3>Desarrollo</h3>
+            <p>Código limpio, probado en celular y computadora.</p>
+          </div>
+          <div><span class="n">4</span>
+            <h3>Lanzamiento</h3>
+            <p>Publicamos tu sitio y te acompañamos después.</p>
           </div>
         </div>
-
-        <nav class="cb-close__links" aria-label="Navegación del pie de página">
-          <div class="cb-close__link-column">
-            <h3>Servicios</h3>
-            <ul>
-              <li><a href="#servicios">Páginas web</a></li>
-              <li><a href="#servicios">Tiendas en línea</a></li>
-              <li><a href="#servicios">Landing pages</a></li>
-              <li><a href="#servicios">NFC y menús QR</a></li>
-            </ul>
-          </div>
-          <div class="cb-close__link-column">
-            <h3>Explora</h3>
-            <ul>
-              <li><a href="#proyectos">Proyectos</a></li>
-              <li><a href="#clientes">Clientes</a></li>
-              <li><a href="#proceso">Cómo trabajamos</a></li>
-              <li><a href="#faq">Preguntas frecuentes</a></li>
-            </ul>
-          </div>
-          <div class="cb-close__link-column">
-            <h3>CodeBit</h3>
-            <ul>
-              <li><a href="#contacto">Contacto</a></li>
-              <li><a href="#paquetes">Paquetes</a></li>
-              <li><a href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">WhatsApp</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        
       </div>
+    </section>
 
-      <div class="cb-close__footer-bottom">
-        <p class="cb-close__copyright"><span>©2026</span><span class="cb-close__slash">/</span><strong>CodeBit</strong><span class="cb-close__slash">/</span><span>Código limpio, resultados claros.</span></p>
-        <img class="cb-close__hands cb-close__hands-left" src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4c029f38-d0a0-46d1-9ebc-3edcdaa11fc1.png" alt="" aria-hidden="true">
-        <img class="cb-close__hands cb-close__hands-right" src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/7eba3f06-a99e-44b8-bd46-7ccfaf6b2363.png" alt="" aria-hidden="true">
-        <div class="cb-close__wordmark" aria-hidden="true">CodeBit</div>
+    <section id="paquetes" style="background:var(--bg2)">
+      <div class="w">
+        <span class="tag rv">06 / paquetes</span>
+        <h2 class="rv">Elige tu <em>punto de partida.</em></h2>
+        <p class="lead rv">Precios de referencia; la cotización final depende de tu proyecto.</p>
+        <div class="pk">
+          <div class="pc rv">
+            <h3>Esencial</h3>
+            <div class="pr">desde Q399</div>
+            <ul>
+              <li>Landing o sitio de 1 a 3 secciones</li>
+              <li>Diseño responsive</li>
+              <li>Botón de WhatsApp</li>
+              <li>SEO básico</li>
+            </ul><a class="btn btn-g" href="#contacto">Cotizar Esencial</a>
+          </div>
+          <div class="pc hot rv">
+            <h3>Profesional</h3>
+            <div class="pr">desde Q799· el más elegido</div>
+            <ul>
+              <li>Sitio de 5 o más secciones</li>
+              <li>Diseño 100% a la medida</li>
+              <li>Formulario y analítica</li>
+              <li>1 mes de soporte</li>
+            </ul><a class="btn btn-a" href="#contacto">Cotizar Profesional</a>
+          </div>
+          <div class="pc rv">
+            <h3>Tienda en línea</h3>
+            <div class="pr">desde Q1,499</div>
+            <ul>
+              <li>Catálogo y carrito</li>
+              <li>Pagos y pedidos</li>
+              <li>Panel de productos</li>
+              <li>Capacitación de uso</li>
+            </ul><a class="btn btn-g" href="#contacto">Cotizar Tienda</a>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="ph2">
+      <div class="w">
+        <div>
+          <span class="tag rv">07 / más allá de la pantalla</span>
+          <h2 class="rv">Lo digital, también <em>en persona.</em></h2>
+          <ul class="rv">
+            <li><b>Tarjetas NFC.</b> Un toque y se abre tu presentación. Sin apps.</li>
+            <li><b>Menús QR.</b> Actualizables al instante, sin imprimir de nuevo.</li>
+            <li><b>Bodas digitales.</b> Invitación y álbum donde cada invitado aporta sus fotos.</li>
+            <li><b>Automatización.</b> Arduino y sensores conectados a software a la medida.</li>
+          </ul>
+          <a class="btn btn-a rv" href="#contacto">Preguntar por NFC, QR o bodas</a>
+        </div>
+        <div class="ph rv"><video autoplay loop muted playsinline poster="codebit-icono-512.png">
+            <source src="presentacion.mp4" type="video/mp4">
+          </video></div>
+      </div>
+    </section>
+
+    <section id="faq" class="cream">
+      <div class="w" style="max-width:860px">
+        <span class="tag rv">08 / preguntas</span>
+        <h2 class="rv">Resolvemos <em>tus dudas.</em></h2>
+        <div style="margin-top:40px" class="rv">
+          <details>
+            <summary>¿Cuánto cuesta una página web?</summary>
+            <p>Depende de las secciones, las funciones y el diseño. Tenemos paquetes desde un sitio sencillo hasta
+              tiendas completas. Escríbenos y te damos una cotización gratuita.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tiempo toma?</summary>
+            <p>Una landing puede estar lista en pocos días; un sitio completo toma algunas semanas. Te damos fechas
+              concretas en la propuesta.</p>
+          </details>
+          <details>
+            <summary>¿Incluye dominio y hosting?</summary>
+            <p>Te ayudamos a elegirlos y configurarlos a tu nombre, y también podemos desplegar en la nube según tu
+              caso.</p>
+          </details>
+          <details>
+            <summary>¿Se verá bien en celular?</summary>
+            <p>Sí. Todos los sitios son responsive y los probamos en celular, tablet y computadora.</p>
+          </details>
+          <details>
+            <summary>¿Puedo pedir cambios después de la entrega?</summary>
+            <p>Sí. Ofrecemos planes de mantenimiento y soporte para actualizar contenido y mantener tu sitio seguro.</p>
+          </details>
+          <details>
+            <summary>¿Hacen invitaciones y álbumes para bodas?</summary>
+            <p>Sí: save the date, invitación formal y una página donde los invitados toman o eligen fotos para el álbum
+              de los novios.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="w ct">
+        <div>
+          <span class="tag rv">09 / contacto</span>
+          <h2 class="rv">Cuéntanos <em>tu idea.</em></h2>
+          <p class="lead rv">Completa el formulario y se abrirá WhatsApp con tu mensaje listo. Te respondemos con una
+            cotización clara.</p>
+          <a class="btn btn-g rv"
+            href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web">Escribir
+            directo por WhatsApp</a>
+        </div>
+        <form id="f" class="rv">
+          <label>NOMBRE<input name="n" required autocomplete="name"></label>
+          <label>TU NEGOCIO<input name="b" autocomplete="organization"></label>
+          <label>QUÉ NECESITAS<select name="t">
+              <option>Página web profesional</option>
+              <option>Tienda en línea</option>
+              <option>Landing page</option>
+              <option>Rediseño de mi web</option>
+              <option>Mantenimiento y soporte</option>
+              <option>Tarjeta NFC / Menú QR</option>
+              <option>Invitación y álbum de boda</option>
+              <option>Otro</option>
+            </select></label>
+          <label>CUÉNTANOS MÁS (OPCIONAL)<textarea name="m"></textarea></label>
+          <button class="btn btn-a" type="submit" style="justify-content:center">Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+
+
+
+  <div id="codebit-close">
+    <div class="cb-close__shell">
+
+
+      <footer class="cb-close__footer" aria-label="Pie de página de CodeBit">
+        <div class="cb-close__footer-main">
+          <div class="cb-close__brand">
+            <a class="cb-close__brand-mark" href="#inicio" aria-label="CodeBit, inicio">
+              <img src="favicon.svg" alt="" width="29" height="29">
+              <span>CodeBit</span>
+            </a>
+            <p class="cb-close__brand-blurb">Diseñamos experiencias digitales para que tu negocio se vea profesional y
+              crezca en internet.</p>
+            <div class="cb-close__socials" aria-label="Redes sociales">
+              <a class="cb-close__social-link" href="https://www.instagram.com/codebitgt/" target="_blank"
+                rel="noopener me" aria-label="Instagram de CodeBit (@codebitgt)">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2.2" y="2.2" width="11.6" height="11.6" rx="3.3" stroke="currentColor" stroke-width="1.35" />
+                  <circle cx="8" cy="8" r="2.65" stroke="currentColor" stroke-width="1.3" />
+                  <circle cx="11.7" cy="4.45" r=".8" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <nav class="cb-close__links" aria-label="Navegación del pie de página">
+            <div class="cb-close__link-column">
+              <h3>Servicios</h3>
+              <ul>
+                <li><a href="#servicios">Páginas web</a></li>
+                <li><a href="#servicios">Tiendas en línea</a></li>
+                <li><a href="#servicios">Landing pages</a></li>
+                <li><a href="#servicios">NFC y menús QR</a></li>
+              </ul>
+            </div>
+            <div class="cb-close__link-column">
+              <h3>Explora</h3>
+              <ul>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#proceso">Cómo trabajamos</a></li>
+                <li><a href="#faq">Preguntas frecuentes</a></li>
+              </ul>
+            </div>
+            <div class="cb-close__link-column">
+              <h3>CodeBit</h3>
+              <ul>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#paquetes">Paquetes</a></li>
+                <li><a href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20hacer%20una%20consulta"
+                    target="_blank" rel="noopener">WhatsApp</a></li>
+              </ul>
+            </div>
+          </nav>
+
+
+        </div>
+
+        <div class="cb-close__footer-bottom">
+          <p class="cb-close__copyright"><span>©2026</span><span
+              class="cb-close__slash">/</span><strong>CodeBit</strong><span class="cb-close__slash">/</span><span>Código
+              limpio, resultados claros.</span></p>
+          <img class="cb-close__hands cb-close__hands-left"
+            src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4c029f38-d0a0-46d1-9ebc-3edcdaa11fc1.png"
+            alt="" aria-hidden="true">
+          <img class="cb-close__hands cb-close__hands-right"
+            src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/7eba3f06-a99e-44b8-bd46-7ccfaf6b2363.png"
+            alt="" aria-hidden="true">
+          <div class="cb-close__wordmark" aria-hidden="true">CodeBit</div>
+        </div>
+      </footer>
+    </div>
   </div>
-</div>
 
 
-<a class="wa" href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" aria-label="Escribir por WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5A8.5 8.5 0 1 1 21 11.5z"/><path d="M9 9.5c0 3 2.500 5.500 5.500 5.500l1.200-1.500-2-1-.8.800c-.8-.3-1.700-1.200-2-2l.8-.8-1-2L9 9.500z" fill="#fff" stroke="none"/></svg></a>
+  <a class="wa" href="https://wa.me/50240679081?text=Hola%20CodeBit%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+    aria-label="Escribir por WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5A8.5 8.5 0 1 1 21 11.5z" />
+      <path d="M9 9.5c0 3 2.500 5.500 5.500 5.500l1.200-1.500-2-1-.8.800c-.8-.3-1.700-1.200-2-2l.8-.8-1-2L9 9.500z"
+        fill="#fff" stroke="none" />
+    </svg></a>
 
-<script>
-document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(e.target);var t='Hola CodeBit, soy '+d.get('n')+(d.get('b')?' de '+d.get('b'):'')+'. Necesito: '+d.get('t')+'.'+(d.get('m')?' '+d.get('m'):'');window.open('https://wa.me/50240679081?text='+encodeURIComponent(t),'_blank')});
-var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
-document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
-(function(){var b=document.getElementById('ba');if(!b)return;var r=b.querySelector('input'),stop=false,go=false;
-function fit(){b.style.setProperty('--s',b.clientWidth/960)}fit();
-if(window.ResizeObserver)new ResizeObserver(fit).observe(b);else addEventListener('resize',fit);
-function set(v){b.style.setProperty('--p',v+'%');r.value=v}
-r.addEventListener('input',function(){stop=true;set(r.value)});
-new IntersectionObserver(function(es,o){if(!es[0].isIntersecting||go)return;go=true;o.disconnect();if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-var t0=performance.now();(function f(t){if(stop)return;var k=(t-t0)/2600;if(k>=1){set(50);return}set(50+32*Math.sin(k*Math.PI*2)*(1-k));requestAnimationFrame(f)})(t0)},{threshold:.5}).observe(b);
-})();
-var h=document.querySelector('.hero');if(matchMedia('(pointer:fine)').matches){h.addEventListener('pointermove',function(e){var r=h.getBoundingClientRect();h.style.setProperty('--mx',(e.clientX-r.left)+'px');h.style.setProperty('--my',(e.clientY-r.top)+'px')})}
+  <script>
+    document.getElementById('f').addEventListener('submit', function (e) { e.preventDefault(); var d = new FormData(e.target); var t = 'Hola CodeBit, soy ' + d.get('n') + (d.get('b') ? ' de ' + d.get('b') : '') + '. Necesito: ' + d.get('t') + '.' + (d.get('m') ? ' ' + d.get('m') : ''); window.open('https://wa.me/50240679081?text=' + encodeURIComponent(t), '_blank') });
+    var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .12 });
+    document.querySelectorAll('.rv').forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 60 + 'ms'; io.observe(el) });
+    (function () {
+      var b = document.getElementById('ba'); if (!b) return; var r = b.querySelector('input'), stop = false, go = false;
+      function fit() { b.style.setProperty('--s', b.clientWidth / 960) } fit();
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(b); else addEventListener('resize', fit);
+      function set(v) { b.style.setProperty('--p', v + '%'); r.value = v }
+      r.addEventListener('input', function () { stop = true; set(r.value) });
+      new IntersectionObserver(function (es, o) {
+        if (!es[0].isIntersecting || go) return; go = true; o.disconnect(); if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+        var t0 = performance.now(); (function f(t) { if (stop) return; var k = (t - t0) / 2600; if (k >= 1) { set(50); return } set(50 + 32 * Math.sin(k * Math.PI * 2) * (1 - k)); requestAnimationFrame(f) })(t0)
+      }, { threshold: .5 }).observe(b);
+    })();
+    var h = document.querySelector('.hero'); if (matchMedia('(pointer:fine)').matches) { h.addEventListener('pointermove', function (e) { var r = h.getBoundingClientRect(); h.style.setProperty('--mx', (e.clientX - r.left) + 'px'); h.style.setProperty('--my', (e.clientY - r.top) + 'px') }) }
 
-var cbNewsletterForm = document.getElementById('cb-newsletter-form');
-if (cbNewsletterForm) {
-  cbNewsletterForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    if (!cbNewsletterForm.reportValidity()) return;
-    var message = document.getElementById('cb-newsletter-message');
-    message.textContent = 'Gracias por tu interés. Para recibir suscripciones, conecta este formulario a tu servicio de correo.';
-    message.classList.add('cb-close__form-message');
-    cbNewsletterForm.reset();
-  });
-}
-</script>
-<script>
-(function(){var el=document.getElementById('intro');if(!el)return;var root=document.documentElement;
-if(!root.classList.contains('intro-on')){el.remove();return}
-var done=false;
-function end(){if(done)return;done=true;try{sessionStorage.setItem('cbIntro','1')}catch(e){}
-el.classList.add('out');setTimeout(function(){root.classList.remove('intro-on');el.remove()},1150)}
-setTimeout(end,3700);el.addEventListener('click',end);
-document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' ')end()});
-})();
-</script>
+    var cbNewsletterForm = document.getElementById('cb-newsletter-form');
+    if (cbNewsletterForm) {
+      cbNewsletterForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!cbNewsletterForm.reportValidity()) return;
+        var message = document.getElementById('cb-newsletter-message');
+        message.textContent = 'Gracias por tu interés. Para recibir suscripciones, conecta este formulario a tu servicio de correo.';
+        message.classList.add('cb-close__form-message');
+        cbNewsletterForm.reset();
+      });
+    }
+  </script>
+  <script>
+    (function () {
+      var el = document.getElementById('intro'); if (!el) return; var root = document.documentElement;
+      if (!root.classList.contains('intro-on')) { el.remove(); return }
+      var done = false;
+      function end() {
+        if (done) return; done = true; try { sessionStorage.setItem('cbIntro', '1') } catch (e) { }
+        el.classList.add('out'); setTimeout(function () { root.classList.remove('intro-on'); el.remove() }, 1150)
+      }
+      setTimeout(end, 3700); el.addEventListener('click', end);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') end() });
+    })();
+  </script>
+
+  <!-- ================= MODAL DEMO CODEBIT WEDDINGS ================= -->
+  <div id="cb-wedding-modal" class="cb-modal-overlay" onclick="cerrarModalBoda(event)">
+    <div class="cb-modal-container">
+
+      <div class="cb-modal-header">
+        <div>
+          <span class="t">DEMO INTERACTIVA / 2026</span>
+          <h4>Codebit <em>Weddings</em></h4>
+        </div>
+        <button class="cb-modal-close" onclick="cerrarModalBodaDirecto()" aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="cb-modal-nav" role="tablist">
+        <button class="cb-pill active" onclick="cambiarVistaDemo('std', this)">01. Save the Date</button>
+        <button class="cb-pill" onclick="cambiarVistaDemo('inv', this)">02. Invitación</button>
+        <button class="cb-pill" onclick="cambiarVistaDemo('chk', this)">03. Check-in</button>
+        <button class="cb-pill" onclick="cambiarVistaDemo('cam', this)">04. Cámara</button>
+      </div>
+
+      <div class="cb-device-wrapper">
+        <div class="cb-device-frame">
+          <div class="cb-device-notch"></div>
+          <iframe id="cb-demo-frame" src="" title="Vista previa Codebit Weddings" loading="lazy"></iframe>
+        </div>
+        <p id="cb-demo-desc" class="cb-step-caption">
+          Cuenta regresiva en tiempo real, presentación y música ambiental.
+        </p>
+      </div>
+
+      <div class="cb-modal-actions">
+        <a href="#contacto" class="cb-cta-btn" onclick="cerrarModalBodaDirecto()">
+          Cotizar este ecosistema &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .cb-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 22, 19, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .cb-modal-overlay.is-open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .cb-modal-container {
+      background: var(--cream, #f6f3ee);
+      color: var(--ink, #1a1d1a);
+      width: 100%;
+      max-width: 520px;
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      max-height: 94vh;
+      overflow-y: auto;
+    }
+
+    .cb-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .cb-modal-header .t {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cb-modal-header h4 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .cb-modal-header h4 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .cb-modal-close {
+      background: rgba(0, 0, 0, 0.05);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      color: inherit;
+      transition: background 0.2s;
+    }
+
+    .cb-modal-close:hover {
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .cb-modal-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+    }
+
+    .cb-modal-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cb-pill {
+      white-space: nowrap;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: transparent;
+      color: inherit;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cb-pill:hover {
+      border-color: #243b26;
+    }
+
+    .cb-pill.active {
+      background: #243b26;
+      color: var(--cream, #f6f3ee);
+      border-color: #243b26;
+    }
+
+    .cb-device-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cb-device-frame {
+      width: 290px;
+      height: 500px;
+      border-radius: 36px;
+      border: 8px solid #181918;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    .cb-device-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 16px;
+      background: #181918;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      z-index: 2;
+    }
+
+    .cb-device-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .cb-step-caption {
+      font-size: 13px;
+      opacity: 0.75;
+      text-align: center;
+      margin: 12px 0 0;
+      max-width: 340px;
+    }
+
+    .cb-modal-actions {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .cb-cta-btn {
+      display: inline-block;
+      background: #243b26;
+      color: var(--cream, #f6f3ee);
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cb-cta-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <script>
+    const demosBoda = {
+      std: {
+        url: 'demo-boda.html?tab=std',
+        desc: 'Cuenta regresiva en tiempo real, presentación y música ambiental.'
+      },
+      inv: {
+        url: 'demo-boda.html?tab=inv',
+        desc: 'Sobre interactivo con sello de lacre, vinilo musical y confirmación RSVP.'
+      },
+      chk: {
+        url: 'demo-boda.html?tab=chk',
+        desc: 'Buscador instantáneo de mesas para invitados y control de asistencia en vivo.'
+      },
+      cam: {
+        url: 'demo-boda.html?tab=cam',
+        desc: 'Cámara desechable digital con límite de 20 tomas espontáneas y álbum compartido.'
+      }
+    };
+
+    let demoCargada = false;
+
+    function abrirModalBoda() {
+      const modal = document.getElementById('cb-wedding-modal');
+      modal.style.display = 'flex';
+      requestAnimationFrame(() => modal.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+
+      if (!demoCargada) {
+        document.getElementById('cb-demo-frame').src = demosBoda.std.url;
+        demoCargada = true;
+      }
+    }
+
+    function cerrarModalBodaDirecto() {
+      const modal = document.getElementById('cb-wedding-modal');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 250);
+    }
+
+    function cerrarModalBoda(e) {
+      if (e.target.id === 'cb-wedding-modal') {
+        cerrarModalBodaDirecto();
+      }
+    }
+
+    function cambiarVistaDemo(clave, boton) {
+      document.querySelectorAll('.cb-pill').forEach(btn => btn.classList.remove('active'));
+      boton.classList.add('active');
+
+      const data = demosBoda[clave];
+      document.getElementById('cb-demo-frame').src = data.url;
+      document.getElementById('cb-demo-desc').textContent = data.desc;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cerrarModalBodaDirecto();
+    });
+  </script>
 </body>
+
 </html>
