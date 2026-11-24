@@ -887,7 +887,7 @@ html.intro-on,html.intro-on body{overflow:hidden}
 <p class="lead rv">Cada sitio incluye diseño adaptable a celular, tablet y computadora.</p>
 <div class="sv rv">
 <a href="#contacto"><span class="n">01</span><h3>Páginas web profesionales</h3><p>Tu negocio abierto 24/7, claro, rápido y fácil de encontrar en Google.</p><span class="ar">↗</span></a>
-<a href="#contacto"><span class="n">02</span><h3>Diseño personalizado</h3><p>Sin plantillas genéricas: tus colores, tu estilo y tus clientes.</p><span class="ar">↗</span></a>
+<a href="#contacto"><span class="n">02</span><h3>Responsivas</h3><p>Cada página se adapta automáticamente al tamaño de la pantalla del usuario.</p><span class="ar">↗</span></a>
 <a href="#contacto"><span class="n">03</span><h3>Tiendas en línea</h3><p>Catálogo, carrito, pagos y pedidos. Vende mientras duermes.</p><span class="ar">↗</span></a>
 <a href="#contacto"><span class="n">04</span><h3>Landing pages</h3><p>Una página, un objetivo. Ideal para campañas y anuncios.</p><span class="ar">↗</span></a>
 <a href="#contacto"><span class="n">05</span><h3>Rediseño y optimización</h3><p>Tu web actual, pero más rápida, más clara y que sí consigue contactos.</p><span class="ar">↗</span></a>
@@ -927,40 +927,32 @@ html.intro-on,html.intro-on body{overflow:hidden}
 
     <div class="wk" style="color:var(--cream)">
 
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
+      <a class="tl rv" href="javascript:void(0)" onclick="abrirModalBoda()">
         <img class="img-proyecto" src="weddings.jpeg" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">BODA / 2026</span>
+        <span class="t">BODA / 2026 / Toca la imagen para interactuar</span>
         <h3>Codebit Weddings</h3>
         <p>Save the date, invitación formal, check-in de invitados y cámaras desechables para el álbum de los novios.</p>
       </a>
 
       <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="menu.png" alt="Proyecto Codebit Weddings">
-        
-        <span class="t">MENÚ DIGITAL</span>
-        <h3>Restaurante</h3>
-        <p>Menú con QR, fácil de actualizar.</p>
-      </a>
-
-      <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="postres.png" alt="Proyecto Codebit Weddings">
-        
+        <img class="img-proyecto" src="postres.png" alt="Sitio Web Pastelería">
         <span class="t">SITIO WEB</span>
         <h3>Pastelería</h3>
         <p>Catálogo con pedidos por WhatsApp</p>
       </a>
 
       <a class="tl rv" href="#contacto">
-        <!-- Reemplazar div class="ph" por esto: -->
-        <img class="img-proyecto" src="nfc.png" alt="Proyecto Codebit Weddings">
-        
+        <img class="img-proyecto" src="nfc.png" alt="Tarjeta NFC Presentación Digital">
         <span class="t">TARJETA NFC</span>
         <h3>Presentación digital</h3>
         <p>Un toque y tu contacto, tu web y tus redes se abren en el celular.</p>
+      </a>
+
+      <a class="tl rv" href="javascript:void(0)" onclick="abrirProyectoDemo('reservas')">
+        <img class="img-proyecto" src="reservas.png" alt="Sistema de Reservas Web">
+        <span class="t">SISTEMA WEB / AUTOMATIZACIÓN / toca para interactuar</span>
+        <h3>Sistema de Reservas</h3>
+        <p>Agenda citas en tiempo real conectada directamente a Google Sheets y notificaciones automáticas.</p>
       </a>
 
     </div>
@@ -1172,6 +1164,312 @@ el.classList.add('out');setTimeout(function(){root.classList.remove('intro-on');
 setTimeout(end,3700);el.addEventListener('click',end);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' ')end()});
 })();
+</script>
+
+<!-- ================= MODAL DEMO CODEBIT WEDDINGS ================= -->
+<div id="cb-wedding-modal" class="cb-modal-overlay" onclick="cerrarModalBoda(event)">
+  <div class="cb-modal-container">
+    
+    <div class="cb-modal-header">
+      <div>
+        <span class="t">DEMO INTERACTIVA / 2026</span>
+        <h4>Codebit <em>Weddings</em></h4>
+      </div>
+      <button class="cb-modal-close" onclick="cerrarModalBodaDirecto()" aria-label="Cerrar">&times;</button>
+    </div>
+
+    <div class="cb-modal-nav" role="tablist">
+      <button class="cb-pill active" onclick="cambiarVistaDemo('std', this)">01. Save the Date</button>
+      <button class="cb-pill" onclick="cambiarVistaDemo('inv', this)">02. Invitación</button>
+      <button class="cb-pill" onclick="cambiarVistaDemo('chk', this)">03. Check-in</button>
+      <button class="cb-pill" onclick="cambiarVistaDemo('cam', this)">04. Cámara</button>
+    </div>
+
+    <div class="cb-device-wrapper">
+      <div class="cb-device-frame">
+        <div class="cb-device-notch"></div>
+        <iframe id="cb-demo-frame" src="" title="Vista previa Codebit Weddings" loading="lazy"></iframe>
+      </div>
+      <p id="cb-demo-desc" class="cb-step-caption">
+        Cuenta regresiva en tiempo real, presentación y música ambiental.
+      </p>
+    </div>
+
+    <div class="cb-modal-actions">
+      <a href="#contacto" class="cb-cta-btn" onclick="cerrarModalBodaDirecto()">
+        Cotizar este ecosistema &rarr;
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .cb-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 22, 19, 0.82);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .cb-modal-overlay.is-open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .cb-modal-container {
+    background: var(--cream, #f6f3ee);
+    color: var(--ink, #1a1d1a);
+    width: 100%;
+    max-width: 520px;
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .cb-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .cb-modal-header .t {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cb-modal-header h4 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .cb-modal-header h4 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .cb-modal-close {
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .cb-modal-close:hover {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  .cb-modal-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .cb-modal-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cb-pill {
+    white-space: nowrap;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: transparent;
+    color: inherit;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cb-pill:hover {
+    border-color: #243b26;
+  }
+
+  .cb-pill.active {
+    background: #243b26;
+    color: var(--cream, #f6f3ee);
+    border-color: #243b26;
+  }
+
+  .cb-device-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cb-device-frame {
+    width: 290px;
+    height: 500px;
+    border-radius: 36px;
+    border: 8px solid #181918;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  }
+
+  .cb-device-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 16px;
+    background: #181918;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+  }
+
+  .cb-device-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .cb-step-caption {
+    font-size: 13px;
+    opacity: 0.75;
+    text-align: center;
+    margin: 12px 0 0;
+    max-width: 340px;
+  }
+
+  .cb-modal-actions {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .cb-cta-btn {
+    display: inline-block;
+    background: #243b26;
+    color: var(--cream, #f6f3ee);
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .cb-cta-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+</style>
+
+<script>
+    const catalogoDemos = {
+      boda: {
+        tag: 'DEMO INTERACTIVA / 2026',
+        titulo: 'Codebit <em>Weddings</em>',
+        mostrarTabs: true,
+        tabs: [
+          { label: '01. Save the Date', url: 'demo-boda.html?tab=std', desc: 'Cuenta regresiva en tiempo real, presentación y música ambiental.' },
+          { label: '02. Invitación', url: 'demo-boda.html?tab=inv', desc: 'Sobre interactivo con sello de lacre, vinilo musical y confirmación RSVP.' },
+          { label: '03. Check-in', url: 'demo-boda.html?tab=chk', desc: 'Buscador instantáneo de mesas para invitados y control de asistencia en vivo.' },
+          { label: '04. Cámara', url: 'demo-boda.html?tab=cam', desc: 'Cámara desechable digital con límite de 20 tomas espontáneas y álbum compartido.' }
+        ]
+      },
+      reservas: {
+        tag: 'AUTOMATIZACIÓN / APPS SCRIPT',
+        titulo: 'Sistema de <em>Reservas</em>',
+        mostrarTabs: false,
+        url: 'https://codebit-gt.github.io/EjemploReservas/',
+        desc: 'Demo funcional conectada en tiempo real a Google Sheets mediante Apps Script. ¡Haz una reserva de prueba!'
+      }
+    };
+
+    function abrirProyectoDemo(proyectoKey) {
+      const proyecto = catalogoDemos[proyectoKey];
+      if (!proyecto) return;
+
+      const modal = document.getElementById('cb-wedding-modal');
+      const nav = modal.querySelector('.cb-modal-nav');
+      const frame = document.getElementById('cb-demo-frame');
+      const desc = document.getElementById('cb-demo-desc');
+
+      // Actualizar cabecera
+      modal.querySelector('.cb-modal-header .t').textContent = proyecto.tag;
+      modal.querySelector('.cb-modal-header h4').innerHTML = proyecto.titulo;
+
+      if (proyecto.mostrarTabs) {
+        nav.style.display = 'flex';
+        nav.innerHTML = '';
+        proyecto.tabs.forEach((tab, idx) => {
+          const btn = document.createElement('button');
+          btn.className = 'cb-pill' + (idx === 0 ? ' active' : '');
+          btn.textContent = tab.label;
+          btn.onclick = () => {
+            nav.querySelectorAll('.cb-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            frame.src = tab.url;
+            desc.textContent = tab.desc;
+          };
+          nav.appendChild(btn);
+        });
+        frame.src = proyecto.tabs[0].url;
+        desc.textContent = proyecto.tabs[0].desc;
+      } else {
+        nav.style.display = 'none';
+        frame.src = proyecto.url;
+        desc.textContent = proyecto.desc;
+      }
+
+      modal.style.display = 'flex';
+      requestAnimationFrame(() => modal.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModalBodaDirecto() {
+      const modal = document.getElementById('cb-wedding-modal');
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.getElementById('cb-demo-frame').src = ''; // Libera memoria al cerrar
+      }, 250);
+    }
+
+    function cerrarModalBoda(e) {
+      if (e.target.id === 'cb-wedding-modal') {
+        cerrarModalBodaDirecto();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cerrarModalBodaDirecto();
+    });
 </script>
 </body>
 </html>
